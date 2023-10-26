@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/26 15:53:59 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/10/26 23:20:22 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <istream>
+#include <iomanip>
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-static std::string ScreamIt(std::string str)
+int	main(void)
 {
-	std::string res;
+	PhoneBook	book;
+	std::string	line;
 
-	for(size_t i = 0; i < str.size(); ++i)
-		res += toupper(str[i]);
-	return res;
-}
-
-int	main(int argc, char **argv)
-{
-	int i;
-
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else {
-		for (i = 1; i < argc; i++) {
-			std::string str = argv[i];
-			std::cout << ScreamIt(str);
-		}
-		std::cout << std::endl;
+	std::cout << "Please enter ADD SEARCH or EXIT: ";
+	while (getline(std::cin, line))
+	{
+		if (!line.compare("ADD"))
+			book.add_contact();
+		else if (!line.compare("SEARCH"))
+			book.search_contact();
+		else if (!line.compare("EXIT"))
+			return 0;
+		else
+			std::cout << "Please enter ADD SEARCH or EXIT: ";
 	}
 	return 0;
+	
 }

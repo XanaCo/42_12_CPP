@@ -6,7 +6,7 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2023/08/27 19:41:50 by ancolmen         ###   ########.fr        #
+#    Updated: 2023/10/26 15:57:38 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,14 @@
 
 NAME		= my_crappy_phonebook
 
-SRC			= phonebook.cpp
+SRC			= main.cpp \
+				PhoneBook.cpp \
+				Contact.cpp
+
 BIN_PATH 	= ./bin/
 
 CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -MMD -MP -std=c++98
 
 OBJ			= $(addprefix $(BIN_PATH), $(SRC:.cpp=.o))
 
@@ -37,7 +40,7 @@ LF			= --leak-check=full \
 
 all: $(NAME)
 
-$(BIN_PATH)%.o: $(SRC_PATH)%.cpp
+$(BIN_PATH)%.o: %.cpp
 	@ mkdir -p $(dir $@)
 	@ echo "\n\033[97;4m🚧 compiling $@ file 🚧\033[0m\n"
 	@ $(CC) $(CFLAGS) -c $< -o $@

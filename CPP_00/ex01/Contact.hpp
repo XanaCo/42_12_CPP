@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/26 15:53:59 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/10/26 21:55:00 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+
 #include <iostream>
+#include <iomanip>
 
-static std::string ScreamIt(std::string str)
-{
-	std::string res;
+class Contact {
 
-	for(size_t i = 0; i < str.size(); ++i)
-		res += toupper(str[i]);
-	return res;
-}
+public:
+	Contact(void);
+	~Contact(void);
 
-int	main(int argc, char **argv)
-{
-	int i;
+	void set_contact(void);
+	void print_contact(void) const;
+	void get_data(int index) const;
+	std::string trim_string(std::string str) const;
+	
+private:
+	std::string	_firstname;
+	std::string	_lastname;
+	std::string	_nickname;
+	std::string	_phonenumber;
+	std::string	_darksecret;
 
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else {
-		for (i = 1; i < argc; i++) {
-			std::string str = argv[i];
-			std::cout << ScreamIt(str);
-		}
-		std::cout << std::endl;
-	}
-	return 0;
-}
+};
+
+#endif
+

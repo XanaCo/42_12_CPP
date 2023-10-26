@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/26 15:53:59 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:33:35 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+#include "Contact.hpp"
 #include <iostream>
+#include <iomanip>
+#define CONTACT_MAX 8
 
-static std::string ScreamIt(std::string str)
-{
-	std::string res;
+class PhoneBook {
 
-	for(size_t i = 0; i < str.size(); ++i)
-		res += toupper(str[i]);
-	return res;
-}
+public:
+	PhoneBook(void);
+	~PhoneBook(void);
 
-int	main(int argc, char **argv)
-{
-	int i;
+	void search_contact(void) const;
+	void add_contact(void);
 
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else {
-		for (i = 1; i < argc; i++) {
-			std::string str = argv[i];
-			std::cout << ScreamIt(str);
-		}
-		std::cout << std::endl;
-	}
-	return 0;
-}
+private:
+	Contact	_tab[8];
+	int		_index;
+	int		_ncontacts;
+	
+};
+
+#endif
+
