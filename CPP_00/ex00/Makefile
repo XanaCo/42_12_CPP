@@ -6,7 +6,7 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2023/10/26 15:54:35 by ancolmen         ###   ########.fr        #
+#    Updated: 2023/10/29 20:32:01 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@
 NAME		= megaphone
 
 SRC			= megaphone.cpp
+
 BIN_PATH 	= ./bin/
+SRC_PATH 	= ./
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -MMD -MP -std=c++98
@@ -37,7 +39,7 @@ LF			= --leak-check=full \
 
 all: $(NAME)
 
-$(BIN_PATH)%.o: %.cpp
+$(BIN_PATH)%.o: $(SRC_PATH)%.cpp
 	@ mkdir -p $(dir $@)
 	@ echo "\n\033[97;4m🚧 compiling $@ file 🚧\033[0m\n"
 	@ $(CC) $(CFLAGS) -c $< -o $@
@@ -48,20 +50,18 @@ $(NAME): $(OBJ)
 	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@ echo "\033[32;1m✅ MEGAPHONE READY ✅\033[0m\n"
 
-bonus: all
+run: all
+	./$(NAME)
 
 clean:
 	@ echo "\n\033[97;4m🚧 cleaning object files 🚧\033[0m\n"
 	@ $(RM) $(BIN_PATH)
 	@ echo "\033[32;1m★ objects cleaned ★\033[0m\n"
-	
 
 fclean: clean
 	@ $(RM) $(NAME)
 
 re: fclean all
-
-rebonus: fclean bonus
 
 leaks: all
 	$(LEAKS) ./$(NAME)
@@ -69,4 +69,6 @@ leaks: all
 leaksfull: all
 	$(LEAKS) $(LF) ./$(NAME)
 
-.PHONY: all clean fclean re bonus rebonus
+.PHONY: all clean fclean re
+
+-include $(DEPS)
