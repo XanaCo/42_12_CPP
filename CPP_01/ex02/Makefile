@@ -6,18 +6,15 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2023/10/29 17:12:53 by ancolmen         ###   ########.fr        #
+#    Updated: 2023/10/29 17:58:59 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #######	VARIABLES #######
 
-NAME		= zombie_generator
+NAME		= brain
 
 SRC			= main.cpp \
-				Zombie.cpp \
-				newZombie.cpp \
-				randomChump.cpp
 
 BIN_PATH 	= ./bin/
 
@@ -48,9 +45,9 @@ $(BIN_PATH)%.o: %.cpp
 	@ echo "\033[32;1m★ bin OK ★\033[0m\n"
 
 $(NAME): $(OBJ)
-	@ echo "\033[97;4m🚧 zombie_generator in progress 🚧\033[0m\n"
+	@ echo "\033[97;4m🚧 brain in progress 🚧\033[0m\n"
 	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@ echo "\033[32;1m✅ zombie_generator READY ✅\033[0m\n"
+	@ echo "\033[32;1m✅ brain READY ✅\033[0m\n"
 
 bonus: all
 
