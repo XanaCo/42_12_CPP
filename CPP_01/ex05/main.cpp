@@ -10,27 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Replace.hpp"
+#include "Harl.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
-	std::string filename_in, filename_out, s1, s2;
+	Harl	Harlito;
 
-	if (argc != 4)
-	{
-		std::cerr << "Error: Use: ./executable <filename> <string1> <string2>" << std::endl;
-		return (EXIT_FAILURE);
-	}
-	filename_in = argv[1];
-	filename_out = filename_in + ".replace";
-	s1 = argv[2];
-	s2 = argv[3];
-	if (filename_in.empty() || s1.empty() || s2.empty())
-	{
-		std::cerr << "Error: <filename> or <string> not found" << std::endl;
-		return (EXIT_FAILURE);
-	}
-	if (copy_and_replace(filename_in, filename_out, s1, s2))
-		return (EXIT_FAILURE);
+	std::cout << WHITE_C << "[ ... ]" << END_COLOR << std::endl;
+	Harlito.complain("DEBUG");
+	std::cout << WHITE_C << "[ ... ]" << END_COLOR << std::endl;
+	Harlito.complain("INFO");
+	std::cout << WHITE_C << "[ ... ]" << END_COLOR << std::endl;
+	Harlito.complain("WARNING");
+	std::cout << WHITE_C << "[ ... ]" << END_COLOR << std::endl;
+	Harlito.complain("ERROR");
+	std::cout << WHITE_C << "[ ... ]" << END_COLOR << std::endl;
+	Harlito.complain("X");
+	std::cout << WHITE_C << "[ ... ]" << END_COLOR << std::endl;
+
 	return (EXIT_SUCCESS);
 }

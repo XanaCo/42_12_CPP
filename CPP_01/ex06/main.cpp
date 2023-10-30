@@ -10,27 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Replace.hpp"
+#include "Harl.hpp"
 
 int main(int argc, char **argv)
 {
-	std::string filename_in, filename_out, s1, s2;
+	if (argc != 2)
+	{
+		std::cerr << "Error: Usage: ./executable <level>" << std::endl;
+		return (EXIT_FAILURE);
+	}
+	
+	std::string	level = argv[1];
+	if (level.empty())
+	{
+		std::cerr << "Error: <level> not found" << std::endl;
+		return (EXIT_FAILURE);
+	}
 
-	if (argc != 4)
-	{
-		std::cerr << "Error: Use: ./executable <filename> <string1> <string2>" << std::endl;
-		return (EXIT_FAILURE);
-	}
-	filename_in = argv[1];
-	filename_out = filename_in + ".replace";
-	s1 = argv[2];
-	s2 = argv[3];
-	if (filename_in.empty() || s1.empty() || s2.empty())
-	{
-		std::cerr << "Error: <filename> or <string> not found" << std::endl;
-		return (EXIT_FAILURE);
-	}
-	if (copy_and_replace(filename_in, filename_out, s1, s2))
-		return (EXIT_FAILURE);
+	Harl		Harlito;
+	Harlito.complain(level);
+
 	return (EXIT_SUCCESS);
 }

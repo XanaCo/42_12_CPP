@@ -12,10 +12,10 @@
 
 #######	VARIABLES #######
 
-NAME		= Copie_Replace
+NAME		= Harl
 
 SRC			= main.cpp \
-				Replace.cpp
+				Harl.cpp
 
 BIN_PATH 	= ./bin/
 SRC_PATH 	= ./
@@ -47,9 +47,9 @@ $(BIN_PATH)%.o: $(SRC_PATH)%.cpp
 	@ echo "\033[32;1m★ bin OK ★\033[0m\n"
 
 $(NAME): $(OBJ)
-	@ echo "\033[97;4m🚧 C_R in progress 🚧\033[0m\n"
+	@ echo "\033[97;4m🚧 Harl in progress 🚧\033[0m\n"
 	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@ echo "\033[32;1m✅ C_R READY ✅\033[0m\n"
+	@ echo "\033[32;1m✅ HARL READY ✅\033[0m\n"
 
 run: all
 	./$(NAME)

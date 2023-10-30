@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PROGRAM_HPP
-# define PROGRAM_HPP
+#ifndef REPLACE_HPP
+# define REPLACE_HPP
 
 #include <string>
 #include <iostream>
-#include <cstdlib>
+#include <fstream>
 
-//functions in program cpp
+int	copy_and_replace(std::string in, std::string out, std::string s1, std::string s2);
 
 #endif
-
