@@ -39,9 +39,7 @@ Account::Account(int initial_deposit) {
 
 Account::Account() {
 
-	// a quoi ca sert cet constructor private??
 	return ;
-
 }
 
 Account::~Account() {

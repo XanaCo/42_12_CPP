@@ -16,23 +16,23 @@
 
 /*CONSTRUCTORS*/
 
-HumanA::HumanA(std::string name, Weapon &object) : _object(object)
-{
+HumanA::HumanA(std::string name, Weapon &object) : _object(object) {
+
 	this->_name = name;
 	return ;
 }
 
 /*DESTRUCTORS*/
 
-HumanA::~HumanA(void)
-{
+HumanA::~HumanA(void) {
+
 	return ;
 }
 
 /*MEMBER FUNCTIONS*/
 
-void HumanA::attack(void)
-{
+void HumanA::attack(void) {
+
 	std::cout << "\033[32;3m"
 				<< this->_name
 				<< " attacks with their "
@@ -41,7 +41,7 @@ void HumanA::attack(void)
 				<< std::endl;
 }
 
-void HumanA::setWeapon(Weapon &object)
-{
+void HumanA::setWeapon(Weapon &object) {
+
 	this->_object = object;
 }

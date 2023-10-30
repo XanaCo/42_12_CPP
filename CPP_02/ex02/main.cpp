@@ -1,48 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/29 19:17:10 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/10/29 21:56:38 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include <string>
+#include "Fixed.hpp"
 
-/*CONSTRUCTORS*/
+int main( void ) {
 
-Weapon::Weapon(void)
-{
-	return ;
+	Fixed 		a;
+	Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ) );
+
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::max( a, b ) << std::endl;
+
+	return 0;
 }
-
-Weapon::Weapon(std::string new_type)
-{
-	this->_type = new_type;
-	return ;
-}
-
-/*DESTRUCTORS*/
-
-Weapon::~Weapon(void)
-{
-	return ;
-}
-
-/*MEMBER FUNCTIONS*/
-
-const std::string &Weapon::getType() const {
-	
-	return this->_type;
-}
-
-void Weapon::setType(std::string new_type) {
-	
-	this->_type = new_type;
-	return ;
-}
-

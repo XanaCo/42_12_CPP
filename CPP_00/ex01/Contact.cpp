@@ -15,16 +15,16 @@
 
 /*CONSTRUCTORS*/
 
-Contact::Contact(void)
-{
+Contact::Contact(void) {
+
 	//std::cout << "Contact Constructor called" << std::endl;
 	return ;
 }
 
 /*DESTRUCTORS*/
 
-Contact::~Contact(void)
-{
+Contact::~Contact(void) {
+
 	//std::cout << "Contact Destructor called" << std::endl;
 	return ;
 }
@@ -32,8 +32,8 @@ Contact::~Contact(void)
 
 /*MEMBER FUNCTIONS*/
 
-void	Contact::set_contact(void)
-{
+void	Contact::set_contact(void) {
+
 	this->_firstname.clear();
 	this->_lastname.clear();
 	this->_nickname.clear();
@@ -70,8 +70,8 @@ void	Contact::set_contact(void)
 	return ;
 }
 
-void	Contact::print_contact(void) const
-{
+void	Contact::print_contact(void) const {
+
 	std::cout << "\033[97;1m - - - - - - - - - - - - - - " << std::endl;
 	std::cout << " First Name : " << this->_firstname << std::endl;
 	std::cout << " Last Name : " << this->_lastname << std::endl;
@@ -82,8 +82,8 @@ void	Contact::print_contact(void) const
 	return ;
 }
 
-std::string Contact::trim_string(std::string str) const
-{
+std::string Contact::trim_string(std::string str) const {
+
 	std::string	res;
 	int			len;
 	int			spaces;
@@ -104,8 +104,8 @@ std::string Contact::trim_string(std::string str) const
 }
 
 
-void Contact::get_data(int index) const
-{
+void Contact::get_data(int index) const {
+
 	std::cout << std::endl
 				<< "\033[97;1m	|         "
 				<< index

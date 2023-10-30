@@ -14,8 +14,8 @@
 
 /*CONSTRUCTORS*/
 
-PhoneBook::PhoneBook(void)
-{
+PhoneBook::PhoneBook(void) {
+
 	//std::cout << "PhoneBook Constructor called" << std::endl;
 	this->_index = 0;
 	this->_ncontacts = 0;
@@ -24,16 +24,16 @@ PhoneBook::PhoneBook(void)
 
 /*DESTRUCTORS*/
 
-PhoneBook::~PhoneBook(void)
-{
+PhoneBook::~PhoneBook(void) {
+
 	//std::cout << "PhoneBook Destructor called" << std::endl;
 	return ;
 }
 
 /*MEMBER FUNCTIONS*/
 
-void	PhoneBook::search_contact(void) const
-{
+void	PhoneBook::search_contact(void) const {
+
 	std::string	input;
 	int			i;
 	
@@ -54,8 +54,8 @@ void	PhoneBook::search_contact(void) const
 	return ;
 }
 
-void	PhoneBook::add_contact(void)
-{
+void	PhoneBook::add_contact(void) {
+
 	if (this->_ncontacts >= CONTACT_MAX)
 		this->_ncontacts = CONTACT_MAX;
 	if (this->_index == CONTACT_MAX)

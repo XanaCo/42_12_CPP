@@ -15,15 +15,15 @@
 
 /*CONSTRUCTORS*/
 
-Zombie::Zombie(void)
-{
+Zombie::Zombie(void) {
+
 	std::cout << "\033[32;3mConstructor: Default Zombie created\033[0m"
 				<< std::endl;
 	return ;
 }
 
-Zombie::Zombie(std::string name)
-{
+Zombie::Zombie(std::string name) {
+
 	this->_name = name;
 	std::cout << "\033[32;3mConstructor: Zombie "
 				<< this->_name 
@@ -34,8 +34,8 @@ Zombie::Zombie(std::string name)
 
 /*DESTRUCTORS*/
 
-Zombie::~Zombie(void)
-{
+Zombie::~Zombie(void) {
+
 	std::cout << "\033[91;3mDestructor: Zombie "
 				<< this->_name
 				<< " destroyed\033[0m"
@@ -45,8 +45,8 @@ Zombie::~Zombie(void)
 
 /*MEMBER FUNCTIONS*/
 
-void Zombie::annouce(void)
-{
+void Zombie::annouce(void) {
+
 	std::cout << "\033[94;1m"
 				<< this->_name 
 				<< ": BraiiiiiiinnnzzzZ...\033[0m" 

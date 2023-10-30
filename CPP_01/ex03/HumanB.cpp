@@ -16,23 +16,23 @@
 
 /*CONSTRUCTORS*/
 
-HumanB::HumanB(std::string name)
-{
+HumanB::HumanB(std::string name) {
+
 	this->_name = name;
 	return ;
 }
 
 /*DESTRUCTORS*/
 
-HumanB::~HumanB(void)
-{
+HumanB::~HumanB(void) {
+
 	return ;
 }
 
 /*MEMBER FUNCTIONS*/
 
-void HumanB::attack(void)
-{
+void HumanB::attack(void) {
+
 	std::cout << "\033[33;3m"
 				<< this->_name
 				<< " attacks with their "
@@ -41,7 +41,7 @@ void HumanB::attack(void)
 				<< std::endl;
 }
 
-void HumanB::setWeapon(Weapon &object)
-{
+void HumanB::setWeapon(Weapon &object) {
+
 	this->_object = &object;
 }

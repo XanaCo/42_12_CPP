@@ -14,16 +14,16 @@
 
 /*CONSTRUCTORS*/
 
-Harl::Harl(void)
-{
+Harl::Harl(void) {
+
 	std::cout << WHITE_C << "Hello, I am Harl!" << END_COLOR << std::endl;
 	return ;
 }
 
 /*DESTRUCTORS*/
 
-Harl::~Harl(void)
-{
+Harl::~Harl(void) {
+
 	std::cout << WHITE_C << "Bye, see you soon" << END_COLOR << std::endl;
 	return ;
 }

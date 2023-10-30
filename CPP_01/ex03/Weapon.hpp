@@ -23,7 +23,7 @@ public:
 	Weapon(std::string new_type);
 	~Weapon(void);
 	
-	const std::string& getType() const;
+	const std::string &getType() const;
 	void setType(std::string new_type);
 	
 private:
