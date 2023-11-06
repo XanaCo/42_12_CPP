@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/31 16:41:46 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/06 22:45:26 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include "Point.hpp"
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-bool bsp( Point const a, Point const b, Point const c, Point const point);
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
+# define HIT 1
+# define MAX_HIT 2
+# define ENERGY 3
+# define MAX_ENERGY 4
+# define ATTACK 5
 
-int main(void) {
+class DiamondTrap : public FragTrap, public ScavTrap {
 
-	Point	a;
-	Point	b;
-	Point	c;
-	Point	x;
+public:
+	DiamondTrap(void);
+	DiamondTrap(std::string name);
+	DiamondTrap(DiamondTrap const &copie);
+	~DiamondTrap(void);
 
-	if (bsp(a, b, c, x))
-		std::cout << "X is inside the Triangle" << std::endl;
-	std::cout << "X is outside the Triangle" << std::endl;
+	DiamondTrap &operator=(DiamondTrap const &other);
+	
+	void whoAmI(void);
+	int get_value(int index);
 
-	return 0;
-}
+private:
+	std::string _name;
+};
+
+#endif

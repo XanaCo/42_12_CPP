@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/31 17:15:21 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/06 21:43:50 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-# define POINT_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-#include <iostream>
-#include <cmath>
-#include "Fixed.hpp"
+# include "ClapTrap.hpp"
 
-#define WHITE "\033[97;1m"
-#define END_COLOR "\033[0m"
-
-class Point {
+class ScavTrap : public ClapTrap {
 
 public:
-	Point(void);
-	Point(Fixed const x, Fixed const y);
-	Point(Point const &copie);
-	~Point(void);
+	ScavTrap(void);
+	ScavTrap(std::string name);
+	ScavTrap(ScavTrap const &copie);
+	~ScavTrap(void);
 
-	Point &operator=(Point const &other);
-
-private:
-	Fixed const	_x;
-	Fixed const	_y;
+	ScavTrap &operator=(ScavTrap const &other);
+	
+	void attack(const std::string& target);
+	void guardGate();
 
 };
 

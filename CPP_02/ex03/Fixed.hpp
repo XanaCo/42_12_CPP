@@ -6,19 +6,20 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/31 16:33:45 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:24:47 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-#include <iostream>
-#include <cmath>
-#include "Point.hpp"
+# include <iostream>
+# include <cmath>
 
-#define WHITE "\033[97;1m"
-#define END_COLOR "\033[0m"
+# define WHITE "\033[97;1m"
+# define END_COLOR "\033[0m"
+# define RED "\033[31m"
+# define GREEN "\033[32m"
 
 class Fixed {
 

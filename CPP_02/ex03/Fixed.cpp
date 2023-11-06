@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/31 16:45:01 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:05:26 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,9 @@ Fixed &Fixed::operator=(Fixed const &other) {
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &o, Fixed const &rhs) {
+std::ostream &operator<<(std::ostream &o, Fixed const &other) {
 
-	o << rhs.toFloat();
+	o << other.toFloat();
 	return o;
 }
 

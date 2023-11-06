@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/31 16:46:00 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/06 21:43:50 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-/*CONSTRUCTORS*/
+# include "ClapTrap.hpp"
 
-Point::Point(void) {
+class ScavTrap : public ClapTrap {
 
-	return ;
-}
+public:
+	ScavTrap(void);
+	ScavTrap(std::string name);
+	ScavTrap(ScavTrap const &copie);
+	~ScavTrap(void);
 
-Point::Point(Point const &src) {
+	ScavTrap &operator=(ScavTrap const &other);
+	
+	void attack(const std::string& target);
+	void guardGate();
 
-	*this = src;
-	return ;
-}
+};
 
-/*DESTRUCTORS*/
-
-Point::~Point(void) {
-
-	return ;
-}
-
-/*::: Operator Overloading ::: */
-
-Point &Point::operator=(Point const &other) {
-
-	if (this == &other)
-		return *this;
-	// copy values from other into this //
-	return *this;
-}
-
-/*MEMBER FUNCTIONS*/
+#endif

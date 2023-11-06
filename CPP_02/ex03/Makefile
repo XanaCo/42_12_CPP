@@ -6,7 +6,7 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2023/10/31 16:29:16 by ancolmen         ###   ########.fr        #
+#    Updated: 2023/11/06 15:42:03 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,9 @@ $(BIN_PATH)%.o: $(SRC_PATH)%.cpp
 	@ echo "\033[32;1m★ bin OK ★\033[0m\n"
 
 $(NAME): $(OBJ)
-	@ echo "\033[97;4m🚧 Canon 2 in progress 🚧\033[0m\n"
+	@ echo "\033[97;4m🚧 Canon 3 in progress 🚧\033[0m\n"
 	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@ echo "\033[32;1m✅ CANON 2 READY ✅\033[0m\n"
+	@ echo "\033[32;1m✅ CANON 3 READY ✅\033[0m\n"
 
 run: all
 	./$(NAME)

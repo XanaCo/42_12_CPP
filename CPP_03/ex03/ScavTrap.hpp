@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bsp.cpp                                            :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/31 20:16:18 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/06 22:48:34 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include "Point.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
+# include "ClapTrap.hpp"
 
-bool bsp( Point const a, Point const b, Point const c, Point const point) {
+class ScavTrap : public ClapTrap {
+
+public:
+	ScavTrap(void);
+	ScavTrap(std::string name);
+	ScavTrap(ScavTrap const &copie);
+	~ScavTrap(void);
+
+	ScavTrap &operator=(ScavTrap const &other);
 	
-	if (1)
-		return (false);
-	return (true);
-}
+	void attack(const std::string& target);
+	void guardGate();
+	
+	int get_value(int index);
+
+};
+
+#endif
