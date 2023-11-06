@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/31 16:08:48 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/10/31 17:15:21 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef POINT_HPP
+# define POINT_HPP
+
+#include <iostream>
+#include <cmath>
 #include "Fixed.hpp"
 
-int main(void) {
+#define WHITE "\033[97;1m"
+#define END_COLOR "\033[0m"
 
-	Fixed 		a;
-	Fixed const	b(Fixed(5.05f) * Fixed(2));
+class Point {
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+public:
+	Point(void);
+	Point(Fixed const x, Fixed const y);
+	Point(Point const &copie);
+	~Point(void);
 
-	std::cout << b << std::endl;
+	Point &operator=(Point const &other);
 
-	std::cout << Fixed::max(a, b) << std::endl;
+private:
+	Fixed const	_x;
+	Fixed const	_y;
 
-	return 0;
-}
+};
+
+#endif

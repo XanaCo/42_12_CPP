@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/31 16:03:36 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/10/31 16:33:45 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cmath>
+#include "Point.hpp"
 
 #define WHITE "\033[97;1m"
 #define END_COLOR "\033[0m"
@@ -30,22 +31,22 @@ public:
 
 	Fixed &operator=(Fixed const &other);
 
-	bool operator>(Fixed const &other) const; // a(this)>other = TRUE or FALSE
-	bool operator<(Fixed const &other) const; // a(this)<other = TRUE or FALSE
-	bool operator>=(Fixed const &other) const; // a(this)>=other = TRUE or FALSE
-	bool operator<=(Fixed const &other) const; // a(this)<=other = TRUE or FALSE
-	bool operator==(Fixed const &other) const; // a(this)==other = TRUE or FALSE
-	bool operator!=(Fixed const &other) const; // a(this)!=other = TRUE or FALSE
+	bool operator>(Fixed const &other) const;
+	bool operator<(Fixed const &other) const;
+	bool operator>=(Fixed const &other) const;
+	bool operator<=(Fixed const &other) const;
+	bool operator==(Fixed const &other) const;
+	bool operator!=(Fixed const &other) const;
 
-	Fixed operator+(Fixed const &other) const; // a(this)+other= c
-	Fixed operator-(Fixed const &other) const; // a(this)-other = c
-	Fixed operator*(Fixed const &other) const; // a(this)*other = c
-	Fixed operator/(Fixed const &other) const; // a(this)/other = c
+	Fixed operator+(Fixed const &other) const;
+	Fixed operator-(Fixed const &other) const;
+	Fixed operator*(Fixed const &other) const;
+	Fixed operator/(Fixed const &other) const;
 
-	Fixed &operator++(void); // ++a = this + 1
-	Fixed operator++(int); // a++ = c + 1
-	Fixed &operator--(void); // --a = this - 1
-	Fixed operator--(int); // a-- = c - 1
+	Fixed &operator++(void);
+	Fixed operator++(int);
+	Fixed &operator--(void);
+	Fixed operator--(int);
 
 	int getRawBits(void) const;
 	void setRawBits(int const raw);

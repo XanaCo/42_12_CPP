@@ -1,31 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/31 16:08:48 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/10/31 16:46:00 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
-int main(void) {
+/*CONSTRUCTORS*/
 
-	Fixed 		a;
-	Fixed const	b(Fixed(5.05f) * Fixed(2));
+Point::Point(void) {
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-
-	std::cout << b << std::endl;
-
-	std::cout << Fixed::max(a, b) << std::endl;
-
-	return 0;
+	return ;
 }
+
+Point::Point(Point const &src) {
+
+	*this = src;
+	return ;
+}
+
+/*DESTRUCTORS*/
+
+Point::~Point(void) {
+
+	return ;
+}
+
+/*::: Operator Overloading ::: */
+
+Point &Point::operator=(Point const &other) {
+
+	if (this == &other)
+		return *this;
+	// copy values from other into this //
+	return *this;
+}
+
+/*MEMBER FUNCTIONS*/
