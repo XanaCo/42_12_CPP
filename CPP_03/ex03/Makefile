@@ -25,6 +25,7 @@ SRC_PATH 	= ./
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -MMD -MP -std=c++98
+CEXTRAF		= -Wshadow #-Wno-shadow
 
 OBJ			= $(addprefix $(BIN_PATH), $(SRC:.cpp=.o))
 
@@ -46,12 +47,12 @@ all: $(NAME)
 $(BIN_PATH)%.o: $(SRC_PATH)%.cpp
 	@ mkdir -p $(dir $@)
 	@ echo "\n\033[97;4m🚧 compiling $@ file 🚧\033[0m\n"
-	@ $(CC) $(CFLAGS) -c $< -o $@
+	@ $(CC) $(CFLAGS) $(CEXTRAF) -c $< -o $@
 	@ echo "\033[32;1m★ bin OK ★\033[0m\n"
 
 $(NAME): $(OBJ)
 	@ echo "\033[97;4m🚧 Clap_Scav_Frag_Dia in progress 🚧\033[0m\n"
-	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@ $(CC) $(CFLAGS) $(CEXTRAF) $(OBJ) -o $(NAME)
 	@ echo "\033[32;1m✅ CLAP_SCAV_FRAG_DIA READY ✅\033[0m\n"
 
 run: all

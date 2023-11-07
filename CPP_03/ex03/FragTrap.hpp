@@ -15,7 +15,7 @@
 
 # include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
 
 public:
 	FragTrap(void);
@@ -26,8 +26,6 @@ public:
 	FragTrap &operator=(FragTrap const &other);
 	
 	void highFivesGuys(void);
-	
-	int get_value(int index);
 
 };
 

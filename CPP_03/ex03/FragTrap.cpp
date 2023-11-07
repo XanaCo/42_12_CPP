@@ -18,7 +18,6 @@
 
 FragTrap::FragTrap(void) : ClapTrap::ClapTrap() {
 
-	_name = "Generic";
 	_hit = 100;
 	_max_hit = 100;
 	_energy = 100;
@@ -93,5 +92,5 @@ void FragTrap::highFivesGuys(void) {
 				<< "FragTrap " << _name
 				<< " request a High Five!"
 				<< END_COLOR << std::endl;
-				
+	return ;		
 }

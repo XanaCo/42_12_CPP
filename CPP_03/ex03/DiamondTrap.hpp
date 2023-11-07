@@ -15,11 +15,7 @@
 
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
-# define HIT 1
-# define MAX_HIT 2
-# define ENERGY 3
-# define MAX_ENERGY 4
-# define ATTACK 5
+# include <string>
 
 class DiamondTrap : public FragTrap, public ScavTrap {
 
@@ -31,11 +27,12 @@ public:
 
 	DiamondTrap &operator=(DiamondTrap const &other);
 	
+	void attack(const std::string& target);
 	void whoAmI(void);
-	int get_value(int index);
 
 private:
 	std::string _name;
+
 };
 
 #endif

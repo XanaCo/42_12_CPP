@@ -15,7 +15,7 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 
 public:
 	ScavTrap(void);
@@ -27,8 +27,6 @@ public:
 	
 	void attack(const std::string& target);
 	void guardGate();
-	
-	int get_value(int index);
 
 };
 

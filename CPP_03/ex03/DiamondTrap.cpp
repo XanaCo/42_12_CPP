@@ -18,33 +18,33 @@
 
 DiamondTrap::DiamondTrap(void) {
 
-	this->ClapTrap::_name = "Generic";
-	this->_hit = this->FlagTrap::get_value(HIT);
-	_max_hit = 100;
-	_energy = 100;
-	_max_energy = 100;
-	_attack = 30;
+	ClapTrap::_name = "_clap_name";
+	_hit = FragTrap::get_value(HIT);
+	_max_hit = FragTrap::get_value(MAX_HIT);
+	_energy = ScavTrap::get_value(ENERGY);
+	_max_energy = ScavTrap::get_value(MAX_ENERGY);;
+	_attack = FragTrap::get_value(ATTACK);
 	std::cout << WHITE
 				<< "Constructor: Generic DiamondTrap created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap::ClapTrap(name) {
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap::ClapTrap(name + "_clap_name") {
 
 	_name = name;
-	_hit = 100;
-	_max_hit = 100;
-	_energy = 100;
-	_max_energy = 100;
-	_attack = 30;
+	_hit = FragTrap::get_value(HIT);
+	_max_hit = FragTrap::get_value(MAX_HIT);
+	_energy = ScavTrap::get_value(ENERGY);
+	_max_energy = ScavTrap::get_value(MAX_ENERGY);;
+	_attack = FragTrap::get_value(ATTACK);
 	std::cout << WHITE
 				<< "Constructor: " << _name << " DiamondTrap created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &copie) : ClapTrap::ClapTrap(copie._name) {
+DiamondTrap::DiamondTrap(DiamondTrap const &copie) {
 
 	*this = copie;
 	std::cout << WHITE
@@ -71,6 +71,7 @@ DiamondTrap::~DiamondTrap(void) {
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other) {
 
+	this->ClapTrap::_name = other.ClapTrap::_name;
 	this->_name = other._name;
 	this->_hit = other._hit;
 	this->_max_hit = other._max_hit;
@@ -90,15 +91,12 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other) {
 void DiamondTrap::whoAmI(void) {
 
 	std::cout << BLUE
-				<< "DiamondTrap : " << _name
-				<< "| ClapTrap : " << ClapTrap::ClapTrap._name
-				<< END_COLOR << std::endl;
-				
+				<< "DiamondTrap name : " << this->_name
+				<< "| ClapTrap name : " << this->ClapTrap::_name
+				<< END_COLOR << std::endl;			
 }
 
-int DiamondTrap::get_value(int index) {
+void	DiamondTrap::attack(const std::string& target) {
 
-	if (index == HIT)
-		return this->_hit;
-				
+	ScavTrap::attack(target);
 }

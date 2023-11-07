@@ -18,7 +18,6 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap::ClapTrap() {
 
-	_name = "Generic";
 	_hit = 100;
 	_max_hit = 100;
 	_energy = 50;
@@ -111,6 +110,5 @@ void ScavTrap::guardGate() {
 				<< "ScavTrap " << _name
 				<< " is now in Gate Keeper Mode."
 				<< END_COLOR << std::endl;
-				
+	return ;
 }
-

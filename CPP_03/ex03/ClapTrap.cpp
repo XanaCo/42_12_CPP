@@ -18,7 +18,6 @@
 
 ClapTrap::ClapTrap(void) {
 
-	_name = "Generic";
 	_hit = 10;
 	_max_hit = 10;
 	_energy = 10;
@@ -151,5 +150,22 @@ void ClapTrap::display_info(void) const{
 				<< " - Attack damage : " << _attack << std::endl
 				<< std::endl;
 	return ;
+}
+
+int ClapTrap::get_value(int index) const {
+
+	int res = 0;
+
+	if (index == HIT)
+		res = this->_hit;
+	else if (index == MAX_HIT)
+		res = this->_max_hit;
+	else if (index == ENERGY)
+		res = this->_energy;
+	else if (index == MAX_ENERGY)
+		res = this->_max_energy;
+	else if (index == ATTACK)
+		res = this->_attack;
+	return res;
 }
 

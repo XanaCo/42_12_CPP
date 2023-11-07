@@ -23,6 +23,12 @@
 # define GREEN "\033[32m"
 # define END_COLOR "\033[0m"
 
+# define HIT 1
+# define MAX_HIT 2
+# define ENERGY 3
+# define MAX_ENERGY 4
+# define ATTACK 5
+
 class ClapTrap {
 
 public:
@@ -37,8 +43,7 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	void display_info(void) const;
-
-	int get_value(int index);
+	int get_value(int index) const;
 
 protected:
 	std::string	_name;
