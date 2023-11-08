@@ -18,6 +18,7 @@
 
 WrongAnimal::WrongAnimal(void) {
 
+	type = "WrongAnimal";
 	std::cout << RED
 				<< "Constructor: Generic WrongAnimal created"
 				<< END_COLOR << std::endl;

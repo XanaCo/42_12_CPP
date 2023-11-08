@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/06 22:09:41 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:02:09 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 Animal::Animal(void) {
 
+	type = "Animal";
 	std::cout << WHITE
 				<< "Constructor: Generic Animal created"
 				<< END_COLOR << std::endl;

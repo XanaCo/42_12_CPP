@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Program.cpp                                        :+:      :+:    :+:   */
+/*   Replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/29 20:46:18 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:00:40 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 int	copy_and_replace(std::string in, std::string out, std::string s1, std::string s2) {
 
 	std::fstream ifs, ofs;
-	std::string	line;
-	std::size_t	found;
+	std::stringstream file_buffer;
+	std::string	one_line;
+	std::size_t i = 0;
 
 	ifs.open(in.c_str(), std::ios::in);
 	if (!ifs)
@@ -31,20 +32,18 @@ int	copy_and_replace(std::string in, std::string out, std::string s1, std::strin
 		std::cerr << "Error: Could not open " << out << std::endl;
 		return (EXIT_FAILURE);
 	}
-	std::getline(ifs, line);
-	while (!ifs.eof() && !line.empty())
+
+	file_buffer << ifs.rdbuf();
+	one_line = file_buffer.str();
+	while (one_line.size() > i)
 	{
-		found = line.find(s1);
-		if (found != std::string::npos)
+		if (one_line.substr(i, s1.size()) == s1)
 		{
-			ofs << line.substr(0, found);
 			ofs << s2;
-			ofs << line.substr(found + s1.size(), line.size() - found - s1.size());
-			ofs << std::endl;
+			i += s1.size();
 		}
 		else
-			ofs << line << std::endl;
-		std::getline(ifs, line);
+			ofs << one_line[i++];
 	}
 	ifs.close();
 	ofs.close();
