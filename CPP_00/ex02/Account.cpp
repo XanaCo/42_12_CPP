@@ -33,8 +33,8 @@ Account::Account(int initial_deposit) {
 				<< this->_amount
 				<< ";created" << std::endl;
 	Account::_nbAccounts++;
-	return ;
 
+	return ;
 }
 
 Account::Account() {
@@ -50,8 +50,8 @@ Account::~Account() {
 				<< ";amount:"
 				<< this->_amount
 				<< ";closed" << std::endl;
-	return ;
 
+	return ;
 }
 
 /*MEMBER FUNCTIONS make*/
@@ -77,8 +77,8 @@ void	Account::makeDeposit(int deposit) {
 				<< std::endl;
 	Account::_totalNbDeposits++;
 	Account::_totalAmount += deposit;
-	return ;
 
+	return ;
 }
 
 bool	Account::makeWithdrawal(int withdrawal) {
@@ -107,41 +107,35 @@ bool	Account::makeWithdrawal(int withdrawal) {
 				<< std::endl;
 	Account::_totalNbWithdrawals++;
 	Account::_totalAmount -= withdrawal;
+
 	return 0;
-
 }
-
 
 /*MEMBER FUNCTIONS get OR check*/
 
 int		Account::checkAmount( void ) const {
 	
 	return this->_amount;
-
 }
 
 int	Account::getNbAccounts( void ) {
 
 	return _nbAccounts;
-
 }
 
 int	Account::getTotalAmount( void ) {
 
 	return _totalAmount;
-
 }
 
 int	Account::getNbDeposits( void ) {
 
 	return _totalNbDeposits;
-
 }
 
 int	Account::getNbWithdrawals( void ) {
 
 	return _totalNbWithdrawals;
-
 }
 
 /*MEMBER FUNCTIONS display*/
@@ -158,8 +152,8 @@ void	Account::displayAccountsInfos( void ) {
 				<< ";withdrawals:"
 				<< Account::getNbWithdrawals()
 				<< std::endl;
-	return ;
 
+	return ;
 }
 
 void	Account::displayStatus( void ) const {
@@ -174,13 +168,14 @@ void	Account::displayStatus( void ) const {
 				<< ";withdrawals:"
 				<< this->_nbWithdrawals
 				<< std::endl;
-	return ;
 
+	return ;
 }
 
 void	Account::_displayTimestamp( void ) {
 
-	//std::cout << "[19920104_091532] ";
+	// std::cout << "[19920104_091532] ";
+	
 	std::time_t t = std::time(0);
 	std::tm* now = std::localtime(&t);
 	std::cout << "[";
@@ -192,7 +187,6 @@ void	Account::_displayTimestamp( void ) {
 	std::cout << std::setfill('0') << std::setw (2) << now->tm_min;
 	std::cout << std::setfill('0') << std::setw (2) << now->tm_sec;
 	std::cout << "] ";
+
 	return ;
 }
-
-

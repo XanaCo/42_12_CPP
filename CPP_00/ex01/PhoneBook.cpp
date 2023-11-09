@@ -16,7 +16,6 @@
 
 PhoneBook::PhoneBook(void) {
 
-	//std::cout << "PhoneBook Constructor called" << std::endl;
 	this->_index = 0;
 	this->_ncontacts = 0;
 	return ;
@@ -26,22 +25,22 @@ PhoneBook::PhoneBook(void) {
 
 PhoneBook::~PhoneBook(void) {
 
-	//std::cout << "PhoneBook Destructor called" << std::endl;
 	return ;
 }
 
-/*MEMBER FUNCTIONS*/
+/*MEMBERS*/
 
 void	PhoneBook::search_contact(void) const {
 
 	std::string	input;
-	int			i;
 	
-	for (i = 0; i < this->_ncontacts; i++)
+	for (int i = 0; i < this->_ncontacts; i++)
 		this->_tab[i].get_data(i);
+
 	if (!this->_ncontacts)
 		std::cout << "\033[31;1mYou should add some contacts!\033[0m" << std::endl;
-	if (!input.length() && !std::cin.eof() && this->_ncontacts)
+
+	if (this->_ncontacts && !input.length() && !std::cin.eof())
 	{
 		std::cout << std::endl << "	Enter contact index: ";
 		getline(std::cin, input);
@@ -50,7 +49,7 @@ void	PhoneBook::search_contact(void) const {
 		else
 			std::cout << "\033[31;1mWrong index!\033[0m" << std::endl;
 	}
-	std::cout << "Please enter ADD SEARCH or EXIT: ";
+
 	return ;
 }
 
@@ -58,12 +57,15 @@ void	PhoneBook::add_contact(void) {
 
 	if (this->_ncontacts >= CONTACT_MAX)
 		this->_ncontacts = CONTACT_MAX;
+
 	if (this->_index == CONTACT_MAX)
 		this->_index = 0;
-	// std::cout << "n CONTACTS: " << this->_ncontacts << std::endl;
-	// std::cout << "INDEX: " << this->_index << std::endl;
+
 	this->_tab[this->_index].set_contact();
-	this->_ncontacts++;
+
+	if (this->_ncontacts < CONTACT_MAX)
+		this->_ncontacts++;
 	this->_index++;
+
 	return ;
 }

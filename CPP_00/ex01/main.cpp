@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <istream>
-#include <iomanip>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
@@ -22,6 +19,7 @@ int	main(void)
 	std::string	line;
 
 	std::cout << "Please enter ADD SEARCH or EXIT: ";
+
 	while (getline(std::cin, line))
 	{
 		if (!line.compare("ADD"))
@@ -29,10 +27,12 @@ int	main(void)
 		else if (!line.compare("SEARCH"))
 			book.search_contact();
 		else if (!line.compare("EXIT"))
+		{
+			std::cout << "\033[33;1mYou exited. See you soon!\033[0m" << std::endl;
 			return 0;
-		else
-			std::cout << "Please enter ADD SEARCH or EXIT: ";
+		}
+		std::cout << "Please enter ADD SEARCH or EXIT: ";
 	}
+
 	return 0;
-	
 }

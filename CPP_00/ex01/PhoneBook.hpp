@@ -13,10 +13,11 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include "Contact.hpp"
-#include <iostream>
-#include <iomanip>
-#define CONTACT_MAX 8
+# include <iostream>
+# include <string>
+# include "Contact.hpp"
+
+# define CONTACT_MAX 8
 
 class PhoneBook {
 
@@ -31,8 +32,7 @@ private:
 	Contact	_tab[8];
 	int		_index;
 	int		_ncontacts;
-	
+
 };
 
 #endif
-

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Zombie.hpp"
 
 int	main(void)
@@ -38,5 +37,4 @@ int	main(void)
 				<< "We are back without possibility of control, nothing to free, Pedro was local" << std::endl << std::endl;
 
 	return 0;
-	
 }

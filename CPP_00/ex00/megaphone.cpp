@@ -12,25 +12,23 @@
 
 #include <iostream>
 
-static std::string ScreamIt(std::string str)
+static std::string	ScreamIt(std::string str)
 {
 	std::string res;
 
-	for(size_t i = 0; i < str.size(); ++i)
+	for (size_t i = 0; i < str.size(); ++i)
 		res += toupper(str[i]);
 	return res;
 }
 
 int	main(int argc, char **argv)
 {
-	int i;
-
-	
-
 	if (argc == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else {
-		for (i = 1; i < argc; i++) {
+	else 
+	{
+		for (int i = 1; i < argc; i++) 
+		{
 			std::string str = argv[i];
 			std::cout << ScreamIt(str);
 		}

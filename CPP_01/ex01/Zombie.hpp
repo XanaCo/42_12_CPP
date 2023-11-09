@@ -13,9 +13,10 @@
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
-#include <string>
-#include <iostream>
-#define MAX 100000
+# include <iostream>
+# include <string>
+
+# define MAX 100000
 
 class Zombie {
 
@@ -34,4 +35,3 @@ private:
 Zombie* zombieHorde(int N, std::string name);
 
 #endif
-

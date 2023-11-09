@@ -13,8 +13,8 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-#include <iostream>
-#include <iomanip>
+# include <iostream>
+# include <string>
 
 class Contact {
 
@@ -37,4 +37,3 @@ private:
 };
 
 #endif
-

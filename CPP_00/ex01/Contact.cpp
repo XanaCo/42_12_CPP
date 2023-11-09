@@ -11,13 +11,11 @@
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <string>
 
 /*CONSTRUCTORS*/
 
 Contact::Contact(void) {
 
-	//std::cout << "Contact Constructor called" << std::endl;
 	return ;
 }
 
@@ -25,12 +23,10 @@ Contact::Contact(void) {
 
 Contact::~Contact(void) {
 
-	//std::cout << "Contact Destructor called" << std::endl;
 	return ;
 }
 
-
-/*MEMBER FUNCTIONS*/
+/*MEMBERS*/
 
 void	Contact::set_contact(void) {
 
@@ -39,7 +35,9 @@ void	Contact::set_contact(void) {
 	this->_nickname.clear();
 	this->_phonenumber.clear();
 	this->_darksecret.clear();
+
 	std::cout << std::endl;
+	
 	while (!this->_firstname.length() && !std::cin.eof())
 	{
 		std::cout << "	First name: ";
@@ -66,7 +64,7 @@ void	Contact::set_contact(void) {
 		getline(std::cin, this->_darksecret);
 	}
 	std::cout << std::endl;
-	std::cout << "Please enter ADD SEARCH or EXIT: ";
+
 	return ;
 }
 
@@ -79,6 +77,7 @@ void	Contact::print_contact(void) const {
 	std::cout << " Phone Number : " << this->_phonenumber << std::endl;
 	std::cout << " Darkest Secret : " << this->_darksecret << std::endl;
 	std::cout << " - - - - - - - - - - - - - - \033[0m" << std::endl;
+
 	return ;
 }
 
@@ -88,8 +87,14 @@ std::string Contact::trim_string(std::string str) const {
 	int			len;
 	int			spaces;
 
+	for (int i = 0; str[i]; i++)
+	{	
+		if ((str[i] >= 7 && str[i] <= 13) || str[i] == 27 || str[i] == 127 || str[i] == 28)
+			str[i] = 32;
+	}
 	len = str.length();
 	spaces = 10 - len;
+
 	if (len < 10)
 	{
 		res.append(spaces, ' ');
@@ -100,9 +105,9 @@ std::string Contact::trim_string(std::string str) const {
 		res = str.substr(0, 9);
 		res += ".";
 	}
+	
 	return res;
 }
-
 
 void Contact::get_data(int index) const {
 
