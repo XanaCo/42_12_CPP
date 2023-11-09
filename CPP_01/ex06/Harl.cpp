@@ -62,7 +62,6 @@ void	Harl::complain(std::string level) {
 	return ;
 }
 
-
 /*MEMBER Private FUNCTIONS*/
 
 void	Harl::_debug(void) {
