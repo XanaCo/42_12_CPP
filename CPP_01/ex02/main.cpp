@@ -29,5 +29,4 @@ int	main(void)
 	std::cout << "\033[95;3m" << "REF Pointed Value: " << stringREF << "\033[0m" << std::endl;
 
 	return 0;
-	
 }

@@ -13,11 +13,11 @@
 #ifndef REPLACE_HPP
 # define REPLACE_HPP
 
-#include <string>
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <cstdlib>
+# include <string>
+# include <iostream>
+# include <fstream>
+# include <sstream>
+# include <cstdlib>
 
 int	copy_and_replace(std::string in, std::string out, std::string s1, std::string s2);
 

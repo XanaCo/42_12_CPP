@@ -32,7 +32,7 @@ Zombie::~Zombie(void) {
 	return ;
 }
 
-/*MEMBER FUNCTIONS*/
+/*MEMBERS*/
 
 void Zombie::annouce(void) {
 

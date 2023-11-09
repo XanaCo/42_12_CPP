@@ -47,5 +47,6 @@ int	copy_and_replace(std::string in, std::string out, std::string s1, std::strin
 	}
 	ifs.close();
 	ofs.close();
+
 	return (EXIT_SUCCESS);
 }

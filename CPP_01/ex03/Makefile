@@ -51,7 +51,7 @@ $(BIN_PATH)%.o: $(SRC_PATH)%.cpp
 $(NAME): $(OBJ)
 	@ echo "\033[97;4m🚧 violence in progress 🚧\033[0m\n"
 	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@ echo "\033[32;1m✅ violence READY ✅\033[0m\n"
+	@ echo "\033[32;1m✅ VIOLENCE READY ✅\033[0m\n"
 
 run: all
 	./$(NAME)

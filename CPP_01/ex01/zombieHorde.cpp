@@ -22,7 +22,9 @@ Zombie* zombieHorde( int N, std::string name ) {
 		std::cout << "wrong number of Zombies (0 - INT_MAX)" << std::endl;
 		return (NULL);
 	}
+
 	Zombie* horde = new Zombie[N];
+	
 	while (++i < N)
 		horde[i].set_name(name);
 	

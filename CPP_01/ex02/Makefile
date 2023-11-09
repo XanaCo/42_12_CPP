@@ -48,7 +48,7 @@ $(BIN_PATH)%.o: $(SRC_PATH)%.cpp
 $(NAME): $(OBJ)
 	@ echo "\033[97;4m🚧 brain in progress 🚧\033[0m\n"
 	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@ echo "\033[32;1m✅ brain READY ✅\033[0m\n"
+	@ echo "\033[32;1m✅ BRAIN READY ✅\033[0m\n"
 
 run: all
 	./$(NAME)

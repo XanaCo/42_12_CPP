@@ -13,9 +13,7 @@
 #ifndef HUMANA_HPP
 # define HUMANA_HPP
 
-#include <string>
-#include <iostream>
-#include "Weapon.hpp"
+# include "Weapon.hpp"
 
 class HumanA {
 
@@ -33,4 +31,3 @@ private:
 };
 
 #endif
-

@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
 #include "HumanB.hpp"
 
 /*CONSTRUCTORS*/
@@ -29,7 +27,7 @@ HumanB::~HumanB(void) {
 	return ;
 }
 
-/*MEMBER FUNCTIONS*/
+/*MEMBERS*/
 
 void HumanB::attack(void) {
 

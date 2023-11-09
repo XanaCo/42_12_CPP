@@ -11,29 +11,28 @@
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
-#include <string>
 
 /*CONSTRUCTORS*/
 
-Weapon::Weapon(void)
-{
+Weapon::Weapon(void) {
+
 	return ;
 }
 
-Weapon::Weapon(std::string new_type)
-{
+Weapon::Weapon(std::string new_type) {
+
 	this->_type = new_type;
 	return ;
 }
 
 /*DESTRUCTORS*/
 
-Weapon::~Weapon(void)
-{
+Weapon::~Weapon(void) {
+
 	return ;
 }
 
-/*MEMBER FUNCTIONS*/
+/*MEMBERS*/
 
 const std::string &Weapon::getType() const {
 	

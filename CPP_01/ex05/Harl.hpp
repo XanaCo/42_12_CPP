@@ -13,16 +13,16 @@
 #ifndef HARL_HPP
 # define HARL_HPP
 
-#include <string>
-#include <iostream>
-#include <fstream>
+# include <string>
+# include <iostream>
+# include <fstream>
 
-#define WHITE_C "\033[97;3m"
-#define RED "\033[31;1m"
-#define GREEN "\033[32;1m"
-#define YELLOW "\033[33;1m"
-#define BLUE "\033[34;1m"
-#define END_COLOR "\033[0m"
+# define WHITE_C "\033[97;3m"
+# define RED "\033[31;1m"
+# define GREEN "\033[32;1m"
+# define YELLOW "\033[33;1m"
+# define BLUE "\033[34;1m"
+# define END_COLOR "\033[0m"
 
 class Harl {
 
@@ -39,8 +39,5 @@ private:
 	void	_error(void);
 
 };
-
-
-
 
 #endif

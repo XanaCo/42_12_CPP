@@ -28,5 +28,5 @@ int main(void)
 	Harlito.complain("X");
 	std::cout << WHITE_C << "[ ... ]" << END_COLOR << std::endl;
 
-	return (EXIT_SUCCESS);
+	return 0;
 }
