@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/29 21:55:14 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/10 13:19:56 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 class Harl {
 
 public:
-	Harl();
-	~Harl();
+	Harl(void);
+	~Harl(void);
 
 	void	complain(std::string level);
 

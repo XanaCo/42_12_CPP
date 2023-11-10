@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/06 19:43:32 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:03:22 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,11 @@ ClapTrap::~ClapTrap(void) {
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &other) {
 
-	this->_name = other._name;
-	this->_hit = other._hit;
-	this->_energy = other._energy;
-	this->_attack = other._attack;
+	this->_name = other.get_name();
+	this->_hit = other.get_hit();
+	this->_energy = other.get_energy();
+	this->_attack = other.get_attack();
+	
 	return *this;
 }
 
@@ -133,3 +134,25 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	return ;
 }
 
+std::string ClapTrap::get_name(void) const {
+
+	return this->_name;
+}
+
+int ClapTrap::get_hit(void) const {
+
+	return this->_hit;
+	
+}
+
+int ClapTrap::get_energy(void) const {
+
+	return this->_energy;
+	
+}
+
+int ClapTrap::get_attack(void) const {
+
+	return this->_attack;
+	
+}

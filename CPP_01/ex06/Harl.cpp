@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/10/29 20:46:18 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/10 13:17:20 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Harl::Harl(void) {
 
-	std::cout << WHITE_C << "Hello, I am Harl!" << END_COLOR << std::endl << std::endl;
+	//std::cout << WHITE_C << "Hello, I am Harl!" << END_COLOR << std::endl << std::endl;
 	return ;
 }
 
@@ -24,7 +24,7 @@ Harl::Harl(void) {
 
 Harl::~Harl(void) {
 
-	std::cout << WHITE_C << "Bye, see you soon" << END_COLOR << std::endl << std::endl;
+	//std::cout << WHITE_C << "Bye, see you soon" << END_COLOR << std::endl << std::endl;
 	return ;
 }
 
@@ -54,7 +54,7 @@ void	Harl::complain(std::string level) {
 			break ;
 		default:
 			std::cout << WHITE_C 
-						<< "[Probably complaining about something in the background]"
+						<< "[ Probably complaining about insignificant problems ]"
 						<< END_COLOR
 						<< std::endl;
 			break ;
