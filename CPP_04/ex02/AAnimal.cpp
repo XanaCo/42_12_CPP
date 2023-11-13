@@ -1,62 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 21:20:26 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 21:17:11 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "AAnimal.hpp"
 
 /*::: CONSTRUCTORS :::*/
 
-WrongCat::WrongCat(void) {
+AAnimal::AAnimal(void) {
 
-	type = "WrongCat";
-	std::cout << MAGENTA
-				<< "Constructor: Generic WrongCat created"
+	std::cout << WHITE
+				<< "Constructor: Generic AAnimal created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
-WrongCat::WrongCat(WrongCat const &copie) {
+AAnimal::AAnimal(AAnimal const &copie) {
 
 	*this = copie;
-	std::cout << MAGENTA
-				<< "Constructor: WrongCat copie created"
+	std::cout << WHITE
+				<< "Constructor: AAnimal copie created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
 /*::: DESTRUCTORS :::*/
 
-WrongCat::~WrongCat(void) {
+AAnimal::~AAnimal(void) {
 
-	std::cout << MAGENTA
-				<< "Destructor: WrongCat destroyed"
+	std::cout << WHITE
+				<< "Destructor: AAnimal destroyed"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
 /*::: Operator Overloading ::: */
 
-WrongCat &WrongCat::operator=(WrongCat const &other) {
+AAnimal &AAnimal::operator=(AAnimal const &other) {
 
 	this->type = other.type;
-	std::cout << MAGENTA
-				<< "Operator Overload = called for WrongCat"
+	std::cout << WHITE
+				<< "Operator Overload = called for AAnimal"
 				<< END_COLOR << std::endl;
 	return *this;
 }
 
 /*::: MEMBER FUNCTIONS :::*/
 
-void WrongCat::makeSound(void) const {
+std::string AAnimal::getType(void) const {
 
-	std::cout << MAGENTA << "MEOW" << END_COLOR << std::endl;
-	return ;
+	return this->type;
 }

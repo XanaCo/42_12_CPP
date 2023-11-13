@@ -13,6 +13,7 @@
 #include "WrongAnimal.hpp"
 
 /*::: CONSTRUCTORS :::*/
+
 WrongAnimal::WrongAnimal(void) {
 
 	type = "WrongAnimal";

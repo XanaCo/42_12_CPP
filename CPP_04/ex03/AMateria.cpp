@@ -1,62 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   AMateria.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 21:20:26 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 21:17:11 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "AMateria.hpp"
 
 /*::: CONSTRUCTORS :::*/
 
-WrongCat::WrongCat(void) {
+AMateria::AMateria(void) {
 
-	type = "WrongCat";
-	std::cout << MAGENTA
-				<< "Constructor: Generic WrongCat created"
+	std::cout << WHITE
+				<< "Constructor: Generic AMateria created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
-WrongCat::WrongCat(WrongCat const &copie) {
+AMateria::AMateria(AMateria const &copie) {
 
 	*this = copie;
-	std::cout << MAGENTA
-				<< "Constructor: WrongCat copie created"
+	std::cout << WHITE
+				<< "Constructor: AMateria copie created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
 /*::: DESTRUCTORS :::*/
 
-WrongCat::~WrongCat(void) {
+AMateria::~AMateria(void) {
 
-	std::cout << MAGENTA
-				<< "Destructor: WrongCat destroyed"
+	std::cout << WHITE
+				<< "Destructor: AMateria destroyed"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
 /*::: Operator Overloading ::: */
 
-WrongCat &WrongCat::operator=(WrongCat const &other) {
+AMateria &AMateria::operator=(AMateria const &other) {
 
 	this->type = other.type;
-	std::cout << MAGENTA
-				<< "Operator Overload = called for WrongCat"
+	std::cout << WHITE
+				<< "Operator Overload = called for AMateria"
 				<< END_COLOR << std::endl;
 	return *this;
 }
 
 /*::: MEMBER FUNCTIONS :::*/
 
-void WrongCat::makeSound(void) const {
-
-	std::cout << MAGENTA << "MEOW" << END_COLOR << std::endl;
-	return ;
-}
+// virtual void use(ICharacter& target);

@@ -6,16 +6,16 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2023/11/13 21:17:37 by ancolmen         ###   ########.fr        #
+#    Updated: 2023/11/13 22:02:06 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #######	VARIABLES #######
 
-NAME		= Poly_02
+NAME		= Abstract
 
 SRC			= main.cpp \
-				Animal.cpp \
+				AAnimal.cpp \
 				Dog.cpp \
 				Cat.cpp \
 				WrongAnimal.cpp \
@@ -53,9 +53,9 @@ $(BIN_PATH)%.o: $(SRC_PATH)%.cpp
 	@ echo "\033[32;1m★ bin OK ★\033[0m\n"
 
 $(NAME): $(OBJ)
-	@ echo "\033[97;4m🚧 Poly_02 in progress 🚧\033[0m\n"
+	@ echo "\033[97;4m🚧 Abstract in progress 🚧\033[0m\n"
 	@ $(CC) $(CFLAGS) $(CEXTRAF) $(OBJ) -o $(NAME)
-	@ echo "\033[32;1m✅ POLY_02 READY ✅\033[0m\n"
+	@ echo "\033[32;1m✅ ABSTRACT READY ✅\033[0m\n"
 
 run: all
 	./$(NAME)

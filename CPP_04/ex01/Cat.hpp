@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/06 22:48:45 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 20:35:41 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ public:
 	Cat &operator=(Cat const &other);
 
 	void makeSound(void) const;
+	void setIdea(std::string idea, int index);
+	Brain *getCatBrain(void) const;
 
 private:
-	Brain *_brain;
+	Brain *_catBrain;
 	
 };
 

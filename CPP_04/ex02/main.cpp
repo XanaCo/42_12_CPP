@@ -6,11 +6,11 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 21:29:50 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 21:58:34 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
@@ -18,9 +18,38 @@
 #include "WrongCat.hpp"
 #include <cstdlib>
 
+// int main(void)
+// {
+// 	AAnimal *error;
+// 	error = new AAnimal();
+	
+// 	return 0;
+// }
+
+
 int main(void)
 {
-	Animal *AnimalTab[8];
+//Poly_01 TESTS
+
+	std::cout << std::endl << " A Dog is born :" << std::endl;
+	const AAnimal* a = new Dog();
+	std::cout << std::endl << " A Cat is born :" << std::endl;
+	const AAnimal* b = new Cat();
+	std::cout << std::endl;
+	
+	std::cout << "Dog Type : " << a->getType() << std::endl;
+	a->makeSound();
+	std::cout << "Cat Type : " <<  b->getType() << std::endl;
+	b->makeSound();
+	
+	std::cout << std::endl;
+	delete a;
+	delete b;
+	std::cout << std::endl;
+	
+//Poly_02 TESTS
+
+	AAnimal *AnimalTab[8];
 	std::string dogIdeas[5] = {"I will cuddle all humans", "Ball, oh, ball!", "I was waiting for you", "I love this shoe", "That smells delicious"};
 	std::string catIdeas[5] = {"I will slave all humans", "Where's my food", "I really don't like you", "I am bored", "I will break this glass"};
 	

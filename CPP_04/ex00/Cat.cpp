@@ -6,13 +6,14 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 13:56:46 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 21:20:16 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 /*::: CONSTRUCTORS :::*/
+
 Cat::Cat(void) {
 
 	type = "Cat";

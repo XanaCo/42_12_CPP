@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/08 16:11:37 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:24:39 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,29 @@
 
 int main(void)
 {
-	std::cout << std::endl << " Create Animal :" << std::endl;
+	std::cout << std::endl << " An Animal is born :" << std::endl;
 	const Animal* meta = new Animal();
-	std::cout << std::endl << " Create Dog :" << std::endl;
+	std::cout << std::endl << " A Dog is born :" << std::endl;
 	const Animal* a = new Dog();
-	std::cout << std::endl << " Create Cat :" << std::endl;
+	std::cout << std::endl << " A Cat is born :" << std::endl;
 	const Animal* b = new Cat();
-	std::cout << std::endl << " Create WrongAnimal :" << std::endl;
+	std::cout << std::endl << " A WrongAnimal is born :" << std::endl;
 	const WrongAnimal* c = new WrongAnimal();
-	std::cout << std::endl << " Create WrongCat :" << std::endl;
+	std::cout << std::endl << " A WrongCat is born :" << std::endl;
 	const WrongAnimal* d = new WrongCat();
-	std::cout << std::endl << " Create WrongCat :" << std::endl;
+	std::cout << std::endl << " A WrongCat is born :" << std::endl;
 	const WrongCat* e = new WrongCat();
 	
-	std::cout << std::endl << "-------" << std::endl << std::endl;
+	std::cout << std::endl << " --- " << std::endl << std::endl;
 
-	std::cout << " Animal Type : " << meta->getType() << std::endl;
-	std::cout << " Dog Type : " << a->getType() << std::endl;
-	std::cout << " Cat Type : " <<  b->getType() << std::endl;
-	std::cout << " WrongAnimal Type : " <<  c->getType() << std::endl;
-	std::cout << " WrongCat Type : " <<  d->getType() << std::endl;
-	std::cout << " WrongCat Type : " <<  e->getType() << std::endl;
+	std::cout << "Animal Type : " << meta->getType() << std::endl;
+	std::cout << "Dog Type : " << a->getType() << std::endl;
+	std::cout << "Cat Type : " <<  b->getType() << std::endl;
+	std::cout << "WrongAnimal Type : " <<  c->getType() << std::endl;
+	std::cout << "WrongCat Type : " <<  d->getType() << std::endl;
+	std::cout << "WrongCat Type : " <<  e->getType() << std::endl;
 
-	std::cout << std::endl << "-------" << std::endl << std::endl;
+	std::cout << std::endl << " --- " << std::endl << std::endl;
 
 	std::cout << " Animal goes : " << std::endl;
 	meta->makeSound(); //will output the Animal sound!
@@ -55,7 +55,7 @@ int main(void)
 	std::cout << " WrongCat goes : " << std::endl;
 	e->makeSound(); //will output the wrongcat sound!
 
-	std::cout << std::endl << "-------" << std::endl;
+	std::cout << std::endl << " --- " << std::endl;
 
 	std::cout << std::endl << " Delete Meta :" << std::endl;
 	delete meta;
