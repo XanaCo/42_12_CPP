@@ -6,15 +6,13 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/10 19:03:22 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:00:56 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-/* ************************************************************************** */
-/*                     Constructors                                           */
-/* ************************************************************************** */
+/*::: CONSTRUCTORS :::*/
 
 ClapTrap::ClapTrap(void) {
 
@@ -49,9 +47,7 @@ ClapTrap::ClapTrap(ClapTrap const &copie) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Destructors                                            */
-/* ************************************************************************** */
+/*::: DESTRUCTORS :::*/
 
 ClapTrap::~ClapTrap(void) {
 
@@ -61,23 +57,19 @@ ClapTrap::~ClapTrap(void) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Operator Overload                                      */
-/* ************************************************************************** */
+/*::: Operator Overloading ::: */
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &other) {
 
-	this->_name = other.get_name();
-	this->_hit = other.get_hit();
-	this->_energy = other.get_energy();
-	this->_attack = other.get_attack();
+	this->_name = other._name;
+	this->_hit = other._hit;
+	this->_energy = other._energy;
+	this->_attack = other._attack;
 	
 	return *this;
 }
 
-/* ************************************************************************** */
-/*                     Members                                                */
-/* ************************************************************************** */
+/*::: MEMBER FUNCTIONS :::*/
 
 void ClapTrap::attack(const std::string& target) {
 
@@ -132,27 +124,4 @@ void ClapTrap::beRepaired(unsigned int amount) {
 				<< _hit << " hit points."
 				<< END_COLOR << std::endl;
 	return ;
-}
-
-std::string ClapTrap::get_name(void) const {
-
-	return this->_name;
-}
-
-int ClapTrap::get_hit(void) const {
-
-	return this->_hit;
-	
-}
-
-int ClapTrap::get_energy(void) const {
-
-	return this->_energy;
-	
-}
-
-int ClapTrap::get_attack(void) const {
-
-	return this->_attack;
-	
 }

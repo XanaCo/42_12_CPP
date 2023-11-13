@@ -12,10 +12,7 @@
 
 #include "WrongAnimal.hpp"
 
-/* ************************************************************************** */
-/*                     Constructors                                           */
-/* ************************************************************************** */
-
+/*::: CONSTRUCTORS :::*/
 WrongAnimal::WrongAnimal(void) {
 
 	type = "WrongAnimal";
@@ -34,9 +31,7 @@ WrongAnimal::WrongAnimal(WrongAnimal const &copie) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Destructors                                            */
-/* ************************************************************************** */
+/*::: DESTRUCTORS :::*/
 
 WrongAnimal::~WrongAnimal(void) {
 
@@ -46,9 +41,7 @@ WrongAnimal::~WrongAnimal(void) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Operator Overload                                      */
-/* ************************************************************************** */
+/*::: Operator Overloading ::: */
 
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const &other) {
 
@@ -59,9 +52,7 @@ WrongAnimal &WrongAnimal::operator=(WrongAnimal const &other) {
 	return *this;
 }
 
-/* ************************************************************************** */
-/*                     Members                                                */
-/* ************************************************************************** */
+/*::: MEMBER FUNCTIONS :::*/
 
 void WrongAnimal::makeSound(void) const {
 

@@ -6,15 +6,13 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/06 22:46:43 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:34:47 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-/* ************************************************************************** */
-/*                     Constructors                                           */
-/* ************************************************************************** */
+/*::: CONSTRUCTORS :::*/
 
 DiamondTrap::DiamondTrap(void) {
 
@@ -53,9 +51,7 @@ DiamondTrap::DiamondTrap(DiamondTrap const &copie) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Destructors                                            */
-/* ************************************************************************** */
+/*::: DESTRUCTORS :::*/
 
 DiamondTrap::~DiamondTrap(void) {
 
@@ -65,9 +61,7 @@ DiamondTrap::~DiamondTrap(void) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Operator Overload                                      */
-/* ************************************************************************** */
+/*::: Operator Overloading ::: */
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other) {
 
@@ -84,15 +78,13 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other) {
 	return *this;
 }
 
-/* ************************************************************************** */
-/*                     Members                                                */
-/* ************************************************************************** */
+/*::: MEMBER FUNCTIONS :::*/
 
 void DiamondTrap::whoAmI(void) {
 
-	std::cout << BLUE
+	std::cout << YELLOW
 				<< "DiamondTrap name : " << this->_name
-				<< "| ClapTrap name : " << this->ClapTrap::_name
+				<< " | ClapTrap name : " << this->ClapTrap::_name
 				<< END_COLOR << std::endl;			
 }
 

@@ -6,15 +6,13 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/06 22:10:18 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:59:26 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-/* ************************************************************************** */
-/*                     Constructors                                           */
-/* ************************************************************************** */
+/*::: CONSTRUCTORS :::*/
 
 ScavTrap::ScavTrap(void) : ClapTrap::ClapTrap() {
 
@@ -52,9 +50,7 @@ ScavTrap::ScavTrap(ScavTrap const &copie) : ClapTrap::ClapTrap(copie._name) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Destructors                                            */
-/* ************************************************************************** */
+/*::: DESTRUCTORS :::*/
 
 ScavTrap::~ScavTrap(void) {
 
@@ -64,9 +60,7 @@ ScavTrap::~ScavTrap(void) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Operator Overload                                      */
-/* ************************************************************************** */
+/*::: Operator Overloading ::: */
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &other) {
 
@@ -82,9 +76,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &other) {
 	return *this;
 }
 
-/* ************************************************************************** */
-/*                     Members                                                */
-/* ************************************************************************** */
+/*::: MEMBER FUNCTIONS :::*/
 
 void ScavTrap::attack(const std::string& target) {
 

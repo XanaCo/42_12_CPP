@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/10 20:29:28 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:51:04 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,6 @@ public:
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-
-	std::string get_name(void) const;
-	int get_hit(void) const;
-	int get_energy(void) const;
-	int get_attack(void) const;
 
 private:
 	std::string		_name;

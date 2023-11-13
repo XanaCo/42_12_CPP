@@ -6,16 +6,13 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/06 22:09:41 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:56:46 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-/* ************************************************************************** */
-/*                     Constructors                                           */
-/* ************************************************************************** */
-
+/*::: CONSTRUCTORS :::*/
 WrongCat::WrongCat(void) {
 
 	type = "WrongCat";
@@ -34,9 +31,7 @@ WrongCat::WrongCat(WrongCat const &copie) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Destructors                                            */
-/* ************************************************************************** */
+/*::: DESTRUCTORS :::*/
 
 WrongCat::~WrongCat(void) {
 
@@ -46,9 +41,7 @@ WrongCat::~WrongCat(void) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Operator Overload                                      */
-/* ************************************************************************** */
+/*::: Operator Overloading ::: */
 
 WrongCat &WrongCat::operator=(WrongCat const &other) {
 
@@ -59,9 +52,7 @@ WrongCat &WrongCat::operator=(WrongCat const &other) {
 	return *this;
 }
 
-/* ************************************************************************** */
-/*                     Members                                                */
-/* ************************************************************************** */
+/*::: MEMBER FUNCTIONS :::*/
 
 void WrongCat::makeSound(void) const {
 

@@ -6,15 +6,13 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/06 22:10:14 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:58:05 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-/* ************************************************************************** */
-/*                     Constructors                                           */
-/* ************************************************************************** */
+/*::: CONSTRUCTORS :::*/
 
 FragTrap::FragTrap(void) : ClapTrap::ClapTrap() {
 
@@ -53,9 +51,7 @@ FragTrap::FragTrap(FragTrap const &copie) : ClapTrap::ClapTrap(copie._name) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Destructors                                            */
-/* ************************************************************************** */
+/*::: DESTRUCTORS :::*/
 
 FragTrap::~FragTrap(void) {
 
@@ -65,9 +61,7 @@ FragTrap::~FragTrap(void) {
 	return ;
 }
 
-/* ************************************************************************** */
-/*                     Operator Overload                                      */
-/* ************************************************************************** */
+/*::: Operator Overloading ::: */
 
 FragTrap &FragTrap::operator=(FragTrap const &other) {
 
@@ -83,9 +77,7 @@ FragTrap &FragTrap::operator=(FragTrap const &other) {
 	return *this;
 }
 
-/* ************************************************************************** */
-/*                     Members                                                */
-/* ************************************************************************** */
+/*::: MEMBER FUNCTIONS :::*/
 
 void FragTrap::highFivesGuys(void) {
 
