@@ -27,16 +27,20 @@
 class AMateria {
 
 public:
-	AMateria(void);
+	AMateria(void); // CANON
 	AMateria(std::string const & type);
-	virtual ~AMateria(void);
+	AMateria(AMateria const &copie); // CANON
+	~AMateria(void); // CANON
 
-	AMateria &operator=(AMateria const &other);
+	AMateria &operator=(AMateria const &other); // CANON
 
 	std::string const & getType() const; //Returns the materia type
 	
 	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter& target);
+
+protected:
+	std::string _type;
 
 };
 

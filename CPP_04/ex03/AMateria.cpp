@@ -22,6 +22,12 @@ AMateria::AMateria(void) {
 	return ;
 }
 
+AMateria::AMateria(std::string const & type) {
+
+	//AFAIRE
+	return ;
+}
+
 AMateria::AMateria(AMateria const &copie) {
 
 	*this = copie;
@@ -45,7 +51,6 @@ AMateria::~AMateria(void) {
 
 AMateria &AMateria::operator=(AMateria const &other) {
 
-	this->type = other.type;
 	std::cout << WHITE
 				<< "Operator Overload = called for AMateria"
 				<< END_COLOR << std::endl;
@@ -54,4 +59,8 @@ AMateria &AMateria::operator=(AMateria const &other) {
 
 /*::: MEMBER FUNCTIONS :::*/
 
-// virtual void use(ICharacter& target);
+void AMateria::use(ICharacter& target) {
+
+	//AFAIRE
+	return ;
+}
