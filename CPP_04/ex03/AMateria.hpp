@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/06 22:48:45 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:16:16 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,21 @@
 # define GREEN "\033[32m"
 # define END_COLOR "\033[0m"
 
+//Abstract Class
+
 class AMateria {
 
 public:
-	AMateria(void); // CANON
-	AMateria(std::string const & type);
-	AMateria(AMateria const &copie); // CANON
-	~AMateria(void); // CANON
+	AMateria(void);
+	AMateria(std::string const &type);
+	AMateria(AMateria const &copy);
+	virtual ~AMateria(void);
 
-	AMateria &operator=(AMateria const &other); // CANON
+	AMateria &operator=(AMateria const &other);
 
-	std::string const & getType() const; //Returns the materia type
-	
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target);
+	std::string const &getType(void) const;
+	virtual AMateria *clone(void) const = 0;
+	virtual void use(ICharacter &target);
 
 protected:
 	std::string _type;

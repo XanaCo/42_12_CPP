@@ -14,25 +14,29 @@
 
 /*::: CONSTRUCTORS :::*/
 
-AMateria::AMateria(void) {
+AMateria::AMateria(void) : _type("Generic") {
 
-	std::cout << WHITE
+	std::cout << GREEN
 				<< "Constructor: Generic AMateria created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
-AMateria::AMateria(std::string const & type) {
-
-	//AFAIRE
+AMateria::AMateria(std::string const & type) : _type(type) {
+	
+	std::cout << GREEN
+				<< "Constructor: AMateria "
+				<< _type
+				<< " created"
+				<< END_COLOR << std::endl;
 	return ;
 }
 
-AMateria::AMateria(AMateria const &copie) {
+AMateria::AMateria(AMateria const &copy) {
 
-	*this = copie;
-	std::cout << WHITE
-				<< "Constructor: AMateria copie created"
+	*this = copy;
+	std::cout << GREEN
+				<< "Constructor: AMateria copy created"
 				<< END_COLOR << std::endl;
 	return ;
 }
@@ -41,7 +45,7 @@ AMateria::AMateria(AMateria const &copie) {
 
 AMateria::~AMateria(void) {
 
-	std::cout << WHITE
+	std::cout << GREEN
 				<< "Destructor: AMateria destroyed"
 				<< END_COLOR << std::endl;
 	return ;
@@ -51,7 +55,8 @@ AMateria::~AMateria(void) {
 
 AMateria &AMateria::operator=(AMateria const &other) {
 
-	std::cout << WHITE
+	_type = other.getType();
+	std::cout << GREEN
 				<< "Operator Overload = called for AMateria"
 				<< END_COLOR << std::endl;
 	return *this;
@@ -61,6 +66,17 @@ AMateria &AMateria::operator=(AMateria const &other) {
 
 void AMateria::use(ICharacter& target) {
 
-	//AFAIRE
+	std::cout << GREEN
+				<< "* "
+				<< _type
+				<< " enters "
+				<< target.getName()
+				<< " body *"
+				<< END_COLOR << std::endl;
 	return ;
+}
+
+std::string const & AMateria::getType(void) const {
+
+	return this->_type;
 }

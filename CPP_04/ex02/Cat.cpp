@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 21:17:16 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:59:57 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ Cat::Cat(void) {
 	return ;
 }
 
-Cat::Cat(Cat const &copie) {
+Cat::Cat(Cat const &copy) {
 
-	*this = copie;
+	*this = copy;
 	_catBrain = new Brain;
 	std::cout << YELLOW
-				<< "Constructor: Cat copie created"
+				<< "Constructor: Cat copy created"
 				<< END_COLOR << std::endl;
 	return ;
 }

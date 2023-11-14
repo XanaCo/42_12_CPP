@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 21:17:26 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:59:57 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ WrongCat::WrongCat(void) {
 	return ;
 }
 
-WrongCat::WrongCat(WrongCat const &copie) {
+WrongCat::WrongCat(WrongCat const &copy) {
 
-	*this = copie;
+	*this = copy;
 	std::cout << MAGENTA
-				<< "Constructor: WrongCat copie created"
+				<< "Constructor: WrongCat copy created"
 				<< END_COLOR << std::endl;
 	return ;
 }

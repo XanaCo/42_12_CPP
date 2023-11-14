@@ -1,15 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 21:17:11 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:17:45 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "IMateriaSource.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
 
-/*::: MEMBER FUNCTIONS :::*/
+# include <iostream>
+# include "AMateria.hpp"
+# include "ICharacter.hpp"
+
+//Concrete Class: Inherits from Abstract AMateria
+
+class Ice : public AMateria {
+
+public:
+	Ice(void);
+	Ice(Ice const &copy);
+	~Ice(void); //virtual?
+
+	Ice &operator=(Ice const &other);
+	
+	AMateria *clone(void) const;
+	void use(ICharacter &target);
+
+};
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/06 22:48:45 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:59:57 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Cat : public Animal {
 
 public:
 	Cat(void);
-	Cat(Cat const &copie);
+	Cat(Cat const &copy);
 	~Cat(void);
 
 	Cat &operator=(Cat const &other);

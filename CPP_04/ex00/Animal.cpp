@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 21:20:14 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:59:57 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ Animal::Animal(void) {
 	return ;
 }
 
-Animal::Animal(Animal const &copie) {
+Animal::Animal(Animal const &copy) {
 
-	*this = copie;
+	*this = copy;
 	std::cout << WHITE
-				<< "Constructor: Animal copie created"
+				<< "Constructor: Animal copy created"
 				<< END_COLOR << std::endl;
 	return ;
 }

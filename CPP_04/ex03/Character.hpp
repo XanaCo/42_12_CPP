@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 16:59:57 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:17:31 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
-# include "Animal.hpp"
+# include <iostream>
+# include "AMateria.hpp"
+# include "ICharacter.hpp"
 
-class Dog : public Animal {
+//Concrete Class : Inherits from Interface ICharacter
+
+class Character : public ICharacter {
 
 public:
-	Dog(void);
-	Dog(Dog const &copy);
-	~Dog(void);
+	Character(void);
+	Character(std::string name);
+	Character(Character const &copy);
+	~Character(void); //virtual?
 
-	Dog &operator=(Dog const &other);
-
-	void makeSound(void) const;
-	void setIdea(std::string idea, int index);
-	Brain *getDogBrain(void) const;
-
+	Character &operator=(Character const &other);
+	
+	std::string const &getName(void) const;
+	void equip(AMateria *m);
+	void unequip(int idx);
+	void use(int idx, ICharacter &target);
+	
 private:
-	Brain *_dogBrain;
+	AMateria *_inventory[4];
+	std::string _name;
 
 };
 

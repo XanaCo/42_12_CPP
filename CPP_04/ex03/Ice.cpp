@@ -1,81 +1,70 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 16:59:57 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:41:10 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Ice.hpp"
 
 /*::: CONSTRUCTORS :::*/
 
-Cat::Cat(void) {
+Ice::Ice(void) : AMateria("ice") {
 
-	type = "Cat";
-	_catBrain = new Brain;
-	std::cout << YELLOW
-				<< "Constructor: Generic Cat created"
+	std::cout << WHITE
+				<< "Constructor: Generic Ice created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
-Cat::Cat(Cat const &copy) {
+Ice::Ice(Ice const &copy) : AMateria(copy.getType()) {
 
-	*this = copy;
-	_catBrain = new Brain;
-	std::cout << YELLOW
-				<< "Constructor: Cat copy created"
+	std::cout << WHITE
+				<< "Constructor: Ice copy created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
 /*::: DESTRUCTORS :::*/
 
-Cat::~Cat(void) {
+Ice::~Ice(void) {
 
-	delete _catBrain;
-	std::cout << YELLOW
-				<< "Destructor: Cat destroyed"
+	std::cout << WHITE
+				<< "Destructor: Ice destroyed"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
 /*::: Operator Overloading ::: */
 
-Cat &Cat::operator=(Cat const &other) {
+Ice &Ice::operator=(Ice const &other) {
 
-	this->type = other.type;
-	for (int i = 0; i < IDEAS; i++)
-	{
-		std::string idea = (other.getCatBrain())->getIdea(i);
-		(this->_catBrain)->setIdea(idea, i);
-	}
-	std::cout << YELLOW
-				<< "Operator Overload = called for Cat"
+	(void)other;
+	std::cout << WHITE
+				<< "Operator Overload = called for Ice"
 				<< END_COLOR << std::endl;
 	return *this;
 }
 
 /*::: MEMBER FUNCTIONS :::*/
 
-void Cat::makeSound(void) const {
+void Ice::use(ICharacter& target) {
 
-	std::cout << YELLOW << "MEOW" << END_COLOR << std::endl;
+	std::cout << WHITE
+			<< "* shoots an ice bolt at "
+			<< target.getName()
+			<< " *"
+			<< END_COLOR << std::endl;
 	return ;
 }
 
-void Cat::setIdea(std::string idea, int index) {
-	
-	this->_catBrain->setIdea(idea, index);
-	return ;
-}
+AMateria* Ice::clone(void) const {
 
-Brain *Cat::getCatBrain(void) const {
-	
-	return this->_catBrain;
+	AMateria *new_clone = new Ice(*this);
+	return new_clone;
 }

@@ -22,11 +22,11 @@ AAnimal::AAnimal(void) {
 	return ;
 }
 
-AAnimal::AAnimal(AAnimal const &copie) {
+AAnimal::AAnimal(AAnimal const &copy) {
 
-	*this = copie;
+	*this = copy;
 	std::cout << WHITE
-				<< "Constructor: AAnimal copie created"
+				<< "Constructor: AAnimal copy created"
 				<< END_COLOR << std::endl;
 	return ;
 }

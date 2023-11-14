@@ -28,7 +28,7 @@ class AAnimal {
 
 public:
 	AAnimal(void);
-	AAnimal(AAnimal const &copie);
+	AAnimal(AAnimal const &copy);
 	virtual ~AAnimal(void);
 
 	AAnimal &operator=(AAnimal const &other);

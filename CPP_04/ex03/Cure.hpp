@@ -1,15 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                         :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 21:17:11 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:17:41 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#ifndef CURE_HPP
+# define CURE_HPP
 
-/*::: MEMBER FUNCTIONS :::*/
+# include <iostream>
+# include "AMateria.hpp"
+# include "ICharacter.hpp"
+
+//Concrete Class: Inherits from Abstract AMateria
+
+class Cure : public AMateria {
+
+public:
+	Cure(void);
+	Cure(Cure const &copy);
+	~Cure(void); //virtual?
+
+	Cure &operator=(Cure const &other);
+	
+	AMateria *clone(void) const;
+	void use(ICharacter &target);
+
+};
+
+#endif

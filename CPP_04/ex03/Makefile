@@ -6,7 +6,7 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2023/11/13 22:20:21 by ancolmen         ###   ########.fr        #
+#    Updated: 2023/11/14 18:40:06 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,16 @@ NAME		= Materia
 
 SRC			= main.cpp \
 				AMateria.cpp \
+				Character.cpp \
+				Ice.cpp \
+				Cure.cpp \
+				MateriaSource.cpp \
 
 BIN_PATH 	= ./bin/
 SRC_PATH 	= ./
 
 CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -MMD -MP -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -MMD -MP -std=c++98 -g3
 CEXTRAF		= -Wshadow #-Wno-shadow
 
 OBJ			= $(addprefix $(BIN_PATH), $(SRC:.cpp=.o))

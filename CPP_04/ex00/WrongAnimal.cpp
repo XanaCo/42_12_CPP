@@ -23,11 +23,11 @@ WrongAnimal::WrongAnimal(void) {
 	return ;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const &copie) {
+WrongAnimal::WrongAnimal(WrongAnimal const &copy) {
 
-	*this = copie;
+	*this = copy;
 	std::cout << RED
-				<< "Constructor: WrongAnimal copie created"
+				<< "Constructor: WrongAnimal copy created"
 				<< END_COLOR << std::endl;
 	return ;
 }

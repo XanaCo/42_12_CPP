@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 21:17:04 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:59:57 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ Brain::Brain(void) {
 	return ;
 }
 
-Brain::Brain(Brain const &copie) {
+Brain::Brain(Brain const &copy) {
 
-	*this = copie;
+	*this = copy;
 	std::cout << BLUE
-				<< "Constructor: Brain copie created"
+				<< "Constructor: Brain copy created"
 				<< END_COLOR << std::endl;
 	return ;
 }

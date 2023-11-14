@@ -1,81 +1,70 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 16:59:57 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:57:05 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Cure.hpp"
 
 /*::: CONSTRUCTORS :::*/
 
-Cat::Cat(void) {
+Cure::Cure(void) : AMateria("cure") {
 
-	type = "Cat";
-	_catBrain = new Brain;
-	std::cout << YELLOW
-				<< "Constructor: Generic Cat created"
+	std::cout << MAGENTA
+				<< "Constructor: Generic Cure created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
-Cat::Cat(Cat const &copy) {
+Cure::Cure(Cure const &copy) : AMateria(copy.getType()) {
 
-	*this = copy;
-	_catBrain = new Brain;
-	std::cout << YELLOW
-				<< "Constructor: Cat copy created"
+	std::cout << MAGENTA
+				<< "Constructor: Cure copy created"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
 /*::: DESTRUCTORS :::*/
 
-Cat::~Cat(void) {
+Cure::~Cure(void) {
 
-	delete _catBrain;
-	std::cout << YELLOW
-				<< "Destructor: Cat destroyed"
+	std::cout << MAGENTA
+				<< "Destructor: Cure destroyed"
 				<< END_COLOR << std::endl;
 	return ;
 }
 
 /*::: Operator Overloading ::: */
 
-Cat &Cat::operator=(Cat const &other) {
+Cure &Cure::operator=(Cure const &other) {
 
-	this->type = other.type;
-	for (int i = 0; i < IDEAS; i++)
-	{
-		std::string idea = (other.getCatBrain())->getIdea(i);
-		(this->_catBrain)->setIdea(idea, i);
-	}
-	std::cout << YELLOW
-				<< "Operator Overload = called for Cat"
+	(void)other;
+	std::cout << MAGENTA
+				<< "Operator Overload = called for Cure"
 				<< END_COLOR << std::endl;
 	return *this;
 }
 
 /*::: MEMBER FUNCTIONS :::*/
 
-void Cat::makeSound(void) const {
+void Cure::use(ICharacter& target) {
 
-	std::cout << YELLOW << "MEOW" << END_COLOR << std::endl;
+	std::cout << MAGENTA
+			<< "* heals "
+			<< target.getName()
+			<< "'s wounds *"
+			<< END_COLOR << std::endl;
 	return ;
 }
 
-void Cat::setIdea(std::string idea, int index) {
-	
-	this->_catBrain->setIdea(idea, index);
-	return ;
-}
+AMateria* Cure::clone(void) const {
 
-Brain *Cat::getCatBrain(void) const {
-	
-	return this->_catBrain;
+	AMateria *new_clone = new Cure(*this);
+	return new_clone;
 }

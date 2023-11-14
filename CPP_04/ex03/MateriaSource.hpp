@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 16:59:57 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:02:30 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include "Animal.hpp"
+# include <iostream>
+# include "AMateria.hpp"
+# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
 
-class Dog : public Animal {
+//Concrete Class : Inherits from Interface IMateriaSource
+
+class MateriaSource : public IMateriaSource {
 
 public:
-	Dog(void);
-	Dog(Dog const &copy);
-	~Dog(void);
+	MateriaSource(void);
+	MateriaSource(MateriaSource const &copy);
+	~MateriaSource(void);
 
-	Dog &operator=(Dog const &other);
+	MateriaSource &operator=(MateriaSource const &other);
 
-	void makeSound(void) const;
-	void setIdea(std::string idea, int index);
-	Brain *getDogBrain(void) const;
+	void learnMateria(AMateria *materia);
+	AMateria *createMateria(std::string const &type);
 
 private:
-	Brain *_dogBrain;
+	AMateria *_inventory[4];
 
 };
 
