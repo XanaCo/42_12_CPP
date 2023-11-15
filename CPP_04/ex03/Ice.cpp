@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 21:41:10 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:44:23 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ Ice &Ice::operator=(Ice const &other) {
 void Ice::use(ICharacter& target) {
 
 	std::cout << WHITE
-			<< "* shoots an ice bolt at "
+			<< "	* shoots an ice bolt at "
 			<< target.getName()
 			<< " *"
 			<< END_COLOR << std::endl;

@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 22:02:30 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:28:54 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define MATERIASOURCE_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
 # include "IMateriaSource.hpp"
 
 //Concrete Class : Inherits from Interface IMateriaSource

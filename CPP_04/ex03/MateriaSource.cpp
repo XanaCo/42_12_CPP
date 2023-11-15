@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 22:03:58 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:21:25 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ MateriaSource::MateriaSource(void) {
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 
-	std::cout << RED
+	std::cout << BLUE
 				<< "Constructor: Generic MateriaSource created"
 				<< END_COLOR << std::endl;
 	return ;
@@ -34,7 +34,7 @@ MateriaSource::MateriaSource(MateriaSource const &copy) {
 			this->_inventory[i] = copy._inventory[i]->clone();
 	}
 	
-	std::cout << RED
+	std::cout << BLUE
 				<< "Constructor: MateriaSource copy created"
 				<< END_COLOR << std::endl;
 	return ;
@@ -50,7 +50,7 @@ MateriaSource::~MateriaSource(void) {
 			delete this->_inventory[i];
 	}
 	
-	std::cout << RED
+	std::cout << BLUE
 				<< "Destructor: MateriaSource destroyed"
 				<< END_COLOR << std::endl;
 	return ;
@@ -83,7 +83,7 @@ void MateriaSource::learnMateria(AMateria *materia) {
 	
 	if (!materia)
 	{
-		std::cout << "Error: Cannot add a nonexistant Material" << std::endl;
+		std::cout << RED << "	Error: Cannot add a nonexistant Material" << END_COLOR << std::endl;
 		return ;
 	}
 	

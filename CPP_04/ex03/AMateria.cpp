@@ -22,7 +22,7 @@ AMateria::AMateria(void) : _type("Generic") {
 	return ;
 }
 
-AMateria::AMateria(std::string const & type) : _type(type) {
+AMateria::AMateria(std::string const &type) : _type(type) {
 	
 	std::cout << GREEN
 				<< "Constructor: AMateria "
@@ -55,7 +55,7 @@ AMateria::~AMateria(void) {
 
 AMateria &AMateria::operator=(AMateria const &other) {
 
-	_type = other.getType();
+	this->_type = other._type;
 	std::cout << GREEN
 				<< "Operator Overload = called for AMateria"
 				<< END_COLOR << std::endl;
@@ -64,7 +64,7 @@ AMateria &AMateria::operator=(AMateria const &other) {
 
 /*::: MEMBER FUNCTIONS :::*/
 
-void AMateria::use(ICharacter& target) {
+void AMateria::use(ICharacter &target) {
 
 	std::cout << GREEN
 				<< "* "
@@ -76,7 +76,7 @@ void AMateria::use(ICharacter& target) {
 	return ;
 }
 
-std::string const & AMateria::getType(void) const {
+std::string const &AMateria::getType(void) const {
 
 	return this->_type;
 }

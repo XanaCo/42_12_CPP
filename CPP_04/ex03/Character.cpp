@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 22:10:17 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:06:27 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void Character::equip(AMateria *m) {
 	
 	if (!m)
 	{
-		std::cout << "Error: Cannot add a nonexistant Materia" << std::endl;
+		std::cout << RED << "	Error: Cannot add a nonexistant Materia" << END_COLOR << std::endl;
 		return ;
 	}
 	
@@ -118,7 +118,7 @@ void Character::equip(AMateria *m) {
 	}
 	if (i > 3)
 	{
-		std::cout << "Error: You should unequip something first" << std::endl;
+		std::cout << RED << "	Error: You should unequip something first" << END_COLOR << std::endl;
 		return ;
 	}
 
@@ -131,7 +131,7 @@ void Character::unequip(int idx) {
 
 	if (idx < 0 || idx > 3)
 	{
-		std::cout << "Error: Index is out of reach" << std::endl;	
+		std::cout << RED << "	Error: Index " << idx << " is out of reach" << END_COLOR << std::endl;	
 		return ;
 	}
 	this->_inventory[idx] = NULL;
@@ -143,17 +143,34 @@ void Character::use(int idx, ICharacter &target) {
 
 	if (idx < 0 || idx > 3)
 	{
-		std::cout << "Error: Index is out of reach" << std::endl;	
+		std::cout << RED << "	Error: Index " << idx << " is out of reach" << END_COLOR << std::endl;	
 		return ;
 	}
 
 	if (!this->_inventory[idx])
 	{
-		std::cout << "* No item at index [ " << idx << " ] *" << std::endl;	
+		std::cout << "	* No item at index [ " << idx << " ] *" << std::endl;	
 		return ;
 	}
 	
 	this->_inventory[idx]->use(target);
 
 	return ;
+}
+
+AMateria *Character::getMat(int idx) {
+	
+	if (idx < 0 || idx > 3)
+	{
+		std::cout << RED << "	Error: Index " << idx << " is out of reach" << END_COLOR << std::endl;	
+		return NULL;
+	}
+
+	if (!this->_inventory[idx])
+	{
+		std::cout << "	* No item at index [ " << idx << " ] *" << std::endl;	
+		return NULL;
+	}
+
+	return this->_inventory[idx];
 }

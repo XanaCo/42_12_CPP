@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 21:17:41 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:29:13 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cure : public AMateria {
 public:
 	Cure(void);
 	Cure(Cure const &copy);
-	~Cure(void); //virtual?
+	~Cure(void);
 
 	Cure &operator=(Cure const &other);
 	

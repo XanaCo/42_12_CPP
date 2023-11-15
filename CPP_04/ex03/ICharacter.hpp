@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 19:33:14 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:20:55 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ICharacter {
 
 public:
 	virtual ~ICharacter() {}
+	
 	virtual std::string const &getName() const = 0;
 	virtual void equip(AMateria *m) = 0;
 	virtual void unequip(int idx) = 0;

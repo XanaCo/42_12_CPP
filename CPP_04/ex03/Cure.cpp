@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 20:57:05 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:44:28 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ Cure &Cure::operator=(Cure const &other) {
 void Cure::use(ICharacter& target) {
 
 	std::cout << MAGENTA
-			<< "* heals "
+			<< "	* heals "
 			<< target.getName()
 			<< "'s wounds *"
 			<< END_COLOR << std::endl;

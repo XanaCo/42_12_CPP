@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/14 21:17:31 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:05:41 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class Character : public ICharacter {
 
 public:
 	Character(void);
-	Character(std::string name);
+	Character(std::string const name);
 	Character(Character const &copy);
-	~Character(void); //virtual?
+	~Character(void);
 
 	Character &operator=(Character const &other);
 	
@@ -33,6 +33,7 @@ public:
 	void equip(AMateria *m);
 	void unequip(int idx);
 	void use(int idx, ICharacter &target);
+	AMateria *getMat(int idx);
 	
 private:
 	AMateria *_inventory[4];
