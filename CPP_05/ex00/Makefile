@@ -6,27 +6,22 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2023/11/17 20:58:06 by ancolmen         ###   ########.fr        #
+#    Updated: 2023/11/17 20:59:05 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #######	VARIABLES #######
 
-NAME		= Materia
+NAME		= Bureaucrat
 
 SRC			= main.cpp \
-				AMateria.cpp \
-				Character.cpp \
-				Ice.cpp \
-				Cure.cpp \
-				MateriaSource.cpp \
+				Bureaucrat.cpp \
 
 BIN_PATH 	= ./bin/
 SRC_PATH 	= ./
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -MMD -MP -std=c++98
-CEXTRAF		= -Wshadow #-Wno-shadow
 
 OBJ			= $(addprefix $(BIN_PATH), $(SRC:.cpp=.o))
 
@@ -48,13 +43,13 @@ all: $(NAME)
 $(BIN_PATH)%.o: $(SRC_PATH)%.cpp
 	@ mkdir -p $(dir $@)
 	@ echo "\n\033[97;4m🚧 compiling $@ file 🚧\033[0m\n"
-	@ $(CC) $(CFLAGS) $(CEXTRAF) -c $< -o $@
+	@ $(CC) $(CFLAGS) -c $< -o $@
 	@ echo "\033[32;1m★ bin OK ★\033[0m\n"
 
 $(NAME): $(OBJ)
-	@ echo "\033[97;4m🚧 Materia in progress 🚧\033[0m\n"
-	@ $(CC) $(CFLAGS) $(CEXTRAF) $(OBJ) -o $(NAME)
-	@ echo "\033[32;1m✅ MATERIA READY ✅\033[0m\n"
+	@ echo "\033[97;4m🚧 Bureaucrat in progress 🚧\033[0m\n"
+	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@ echo "\033[32;1m✅ BUREAUCRAT READY ✅\033[0m\n"
 
 run: all
 	./$(NAME)
