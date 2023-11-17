@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/13 14:00:56 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:10:34 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		_hit = 10;
 	std::cout << GREEN
 				<< "ClapTrap " << _name
-				<< " repaired himself and has now " 
+				<< " epaired himself and has now " 
 				<< _hit << " hit points."
 				<< END_COLOR << std::endl;
 	return ;
