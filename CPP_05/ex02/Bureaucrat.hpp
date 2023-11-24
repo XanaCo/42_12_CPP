@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/24 17:00:28 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:25:54 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <exception>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 # define WHITE "\033[97;1m"
 # define YELLOW "\033[33;1m"
@@ -28,7 +28,7 @@
 # define MAX_GRADE 1
 # define MIN_GRADE 150
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -44,7 +44,7 @@ public:
 	int const			&getGrade() const;
 	void				bureaucratPromotion();
 	void				bureaucratDemotion();
-	void				signForm(Form &form);
+	void				signForm(AForm &form);
 
 	class GradeTooHighException : public std::exception {
 	

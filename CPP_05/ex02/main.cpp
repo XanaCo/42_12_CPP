@@ -6,32 +6,15 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/24 17:06:27 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:02:25 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
-// TEST Creation High/low
-	try
-	{
-		Bureaucrat Paco("", 130);
-		//Bureaucrat Paco("Paquito", -1);
-		//Bureaucrat Paco("Paquito", 1);
-		//Bureaucrat Paco("Paquito", 150);
-		//Bureaucrat Paco("Paquito", -111111111111111111);
-		//Bureaucrat Paco("Paquito", 190);
-		//Bureaucrat Paco("Paquito", 151);
-		//Bureaucrat unknown;
-		//std::cout << unknown << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << std::endl << YELLOW << "WARNING : " << e.what() << END_COLOR << std::endl;
-	}
 
 // TEST Exception tooLow
 	try
@@ -46,11 +29,9 @@ int main(void)
 
 		std::cout << std::endl;
 				
-		Form zero;
-		Form one("28C", 10, 15);
-		Form two("89B", 42, 2);
+		ShrubberyCreationForm one;
+		ShrubberyCreationForm two;
 
-		std::cout << zero << std::endl;
 		std::cout << one << std::endl;
 		std::cout << two << std::endl;
 

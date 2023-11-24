@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/17 22:45:53 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/24 15:08:04 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(void)
 // TEST Creation High/low
 	try
 	{
-		Bureaucrat Paco("", 151);
+		Bureaucrat Paco("" , 149);
 		//Bureaucrat Paco("Paquito", -1);
 		//Bureaucrat Paco("Paquito", 1);
 		//Bureaucrat Paco("Paquito", 150);

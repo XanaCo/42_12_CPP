@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/17 22:25:30 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:13:11 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,34 +30,34 @@
 class Bureaucrat {
 
 public:
-	Bureaucrat(void);
-	Bureaucrat(std::string const name, int grade);
+	Bureaucrat();
+	Bureaucrat(std::string const &name, int grade);
 	Bureaucrat(Bureaucrat const &copy);
-	~Bureaucrat(void);
+	~Bureaucrat();
 
 	Bureaucrat	&operator=(Bureaucrat const &other);
 
-	std::string const	getName(void) const;
-	int					getGrade(void) const;
-	void				bureaucratPromotion(void);
-	void				bureaucratDemotion(void);
+	std::string const	&getName() const;
+	int const			&getGrade() const;
+	void				bureaucratPromotion();
+	void				bureaucratDemotion();
 
 	class GradeTooHighException : public std::exception {
 	
 		public:
-			const char *what(void) const throw();
+			const char *what() const throw();
 	};
 	
 	class GradeTooLowException : public std::exception {
 		
 		public:
-			const char *what(void) const throw();
+			const char *what() const throw();
 	};
 
 	class NoName : public std::exception {
 		
 		public:
-			const char *what(void) const throw();
+			const char *what() const throw();
 	};
 
 private:

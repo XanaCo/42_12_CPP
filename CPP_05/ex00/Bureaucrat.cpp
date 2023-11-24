@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/17 22:44:16 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/24 15:52:39 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*::: CONSTRUCTORS :::*/
 
-Bureaucrat::Bureaucrat(void) : _name("Unknown"), _grade(MIN_GRADE) {
+Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(MIN_GRADE) {
 
 	std::cout << GREEN
 				<< "Constructor: Unknown Bureaucrat created"
@@ -24,18 +24,14 @@ Bureaucrat::Bureaucrat(void) : _name("Unknown"), _grade(MIN_GRADE) {
 }
 
 
-Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name) {
+Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade(grade) {
 
-	std::string noname = this->getName();
-
-	if (noname == "")
+	if (name.empty())
 		throw NoName();
 	if (grade < MAX_GRADE)
 		throw GradeTooHighException();
 	else if (grade > MIN_GRADE)
 		throw GradeTooLowException();
-	else
-		_grade = grade;
 
 	std::cout << GREEN
 			<< "Constructor: "
@@ -46,9 +42,8 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name) {
 	return ;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &copy) {
+Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy._grade) {
 
-	*this = copy;
 	std::cout << WHITE
 				<< "Constructor: Bureaucrat copy created"
 				<< END_COLOR << std::endl;
@@ -58,12 +53,12 @@ Bureaucrat::Bureaucrat(Bureaucrat const &copy) {
 
 /*::: DESTRUCTORS :::*/
 
-Bureaucrat::~Bureaucrat(void) {
+Bureaucrat::~Bureaucrat() {
 
 	std::cout << RED
 			<< "Destructor: "
 			<< _name
-			<< " Bureaucrat created"
+			<< " Bureaucrat destroyed"
 			<< END_COLOR << std::endl;
 
 	return ;
@@ -74,6 +69,7 @@ Bureaucrat::~Bureaucrat(void) {
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other) {
 
 	this->_grade = other.getGrade();
+
 	std::cout << WHITE
 				<< "Operator = called for "
 				<< this->_name
@@ -88,22 +84,23 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &other) {
 			<< ", bureaucrat grade "
 			<< other.getGrade()
 			<< ".";
+
 	return out;
 }
 
 /*::: MEMBER FUNCTIONS :::*/
 
-std::string	const Bureaucrat::getName(void) const {
+std::string	const &Bureaucrat::getName() const {
 
 	return this->_name;
 }
 
-int			Bureaucrat::getGrade(void) const {
+int const &Bureaucrat::getGrade() const {
 	
 	return this->_grade;
 }
 
-void Bureaucrat::bureaucratPromotion(void) {
+void Bureaucrat::bureaucratPromotion() {
 	
 	if (_grade == MAX_GRADE)
 		throw GradeTooHighException();
@@ -112,7 +109,7 @@ void Bureaucrat::bureaucratPromotion(void) {
 
 	return ;
 }
-void Bureaucrat::bureaucratDemotion(void) {
+void Bureaucrat::bureaucratDemotion() {
 
 	if (_grade == MIN_GRADE)
 		throw GradeTooLowException();
@@ -122,17 +119,17 @@ void Bureaucrat::bureaucratDemotion(void) {
 	return ;
 }
 
-const char *Bureaucrat::GradeTooHighException::what(void) const throw() {
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
 
 	return YELLOW "Grade is too high" END_COLOR;
 }
 
-const char *Bureaucrat::GradeTooLowException::what(void) const throw() {
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
 
 	return YELLOW "Grade is too low" END_COLOR;
 }
 
-const char *Bureaucrat::NoName::what(void) const throw() {
+const char *Bureaucrat::NoName::what() const throw() {
 
-	return YELLOW "You should name your Bureaucrat if call this constructor" END_COLOR;
+	return YELLOW "You should name your Bureaucrat if you want to call this constructor" END_COLOR;
 }

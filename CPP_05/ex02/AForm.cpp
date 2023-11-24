@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/24 17:05:33 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:57:01 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /*::: CONSTRUCTORS :::*/
 
-Form::Form() : _name("Unknown"), _gradeSign(MIN_GRADE), _gradeExec(MIN_GRADE) {
+AForm::AForm() : _name("Unknown"), _gradeSign(MIN_GRADE), _gradeExec(MIN_GRADE) {
 
 	this->_signed = false;
 	
 	std::cout << GREEN
-				<< "Constructor: Unknown Form created"
+				<< "Constructor: "
+				<< this->_name 
+				<< " created"
 				<< END_COLOR << std::endl;
 
 	return ;
 }
 
 
-Form::Form(std::string const name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec) {
+AForm::AForm(std::string const name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec) {
 
 	if (name.empty())
 		throw NoName();
@@ -40,18 +42,20 @@ Form::Form(std::string const name, int gradeSign, int gradeExec) : _name(name), 
 	std::cout << GREEN
 			<< "Constructor: "
 			<< this->_name
-			<< " Form created"
+			<< " created"
 			<< END_COLOR << std::endl;
 
 	return ;
 }
 
-Form::Form(Form const &copy) : _name(copy._name), _gradeSign(copy._gradeSign), _gradeExec(copy._gradeExec) {
+AForm::AForm(AForm const &copy) : _name(copy._name), _gradeSign(copy._gradeSign), _gradeExec(copy._gradeExec) {
 
 	this->_signed = copy._signed;
 	
 	std::cout << WHITE
-				<< "Constructor: Form copy created"
+				<< "Constructor: "
+				<< this->_name
+				<< " copy created"
 				<< END_COLOR << std::endl;
 
 	return ;
@@ -59,12 +63,12 @@ Form::Form(Form const &copy) : _name(copy._name), _gradeSign(copy._gradeSign), _
 
 /*::: DESTRUCTORS :::*/
 
-Form::~Form() {
+AForm::~AForm() {
 
 	std::cout << RED
 			<< "Destructor: "
-			<< _name
-			<< " Form destroyed"
+			<< this->_name
+			<< " destroyed"
 			<< END_COLOR << std::endl;
 
 	return ;
@@ -72,18 +76,18 @@ Form::~Form() {
 
 /*::: Operator Overloading ::: */
 
-std::ostream &operator<<(std::ostream &out, Form const &other) {
+std::ostream &operator<<(std::ostream &out, AForm const &other) {
 
 	std::string answer;
 
 	(other.getIsSigned())? answer = "YES" : answer = "NO";
 		
 	out << other.getName()
-			<< ", Form gradeSign "
+			<< ", gradeSign "
 			<< other.getGradeSign()
-			<< ", Form gradeExec "
+			<< ", gradeExec "
 			<< other.getGradeExec()
-			<< ", Form signed "
+			<< ", signed "
 			<< answer
 			<< ".";
 
@@ -92,29 +96,29 @@ std::ostream &operator<<(std::ostream &out, Form const &other) {
 
 /*::: ACCESSORS :::*/
 
-std::string	const &Form::getName() const {
+std::string	const &AForm::getName() const {
 
 	return this->_name;
 }
 
-int const &Form::getGradeExec() const {
+int const &AForm::getGradeExec() const {
 	
 	return this->_gradeExec;
 }
 
-int const &Form::getGradeSign() const {
+int const &AForm::getGradeSign() const {
 	
 	return this->_gradeSign;
 }
 
-bool Form::getIsSigned() const {
+bool AForm::getIsSigned() const {
 	
 	return this->_signed;
 }
 
 /*::: MEMBER FUNCTIONS :::*/
 
-void Form::beSigned(Bureaucrat const &someone) {
+void AForm::beSigned(Bureaucrat const &someone) {
 	
 	if (someone.getGrade() > this->getGradeSign())
 		throw GradeTooLowException();
@@ -124,17 +128,17 @@ void Form::beSigned(Bureaucrat const &someone) {
 
 /*::: EXCEPTIONS :::*/
 
-const char *Form::GradeTooHighException::what() const throw() {
+const char *AForm::GradeTooHighException::what() const throw() {
 
 	return YELLOW "Form Grade is too high" END_COLOR;
 }
 
-const char *Form::GradeTooLowException::what() const throw() {
+const char *AForm::GradeTooLowException::what() const throw() {
 
 	return YELLOW "Form Grade is too low" END_COLOR;
 }
 
-const char *Form::NoName::what() const throw() {
+const char *AForm::NoName::what() const throw() {
 
 	return YELLOW "You should name your Form if call this constructor" END_COLOR;
 }

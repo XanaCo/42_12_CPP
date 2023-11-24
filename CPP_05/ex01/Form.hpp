@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/17 23:00:22 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:51:30 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,43 @@
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
 
 public:
-	Form(void);
+	Form();
 	Form(std::string const name, int gradeSign, int gradeExec);
 	Form(Form const &copy);
-	~Form(void);
+	~Form();
 
-	Form	&operator=(Form const &other);
-
-	std::string const getName(void) const;
-	bool isSigned(void) const;
-	int getGradeSign(void) const;
-	int getGradeExec(void) const;
-	void beSigned(Bureaucrat someone);
-	void signForm(void);
+	std::string const &getName() const;
+	bool getIsSigned() const;
+	int const &getGradeSign() const;
+	int const &getGradeExec() const;	
+	void beSigned(Bureaucrat const &someone);
 
 	class GradeTooHighException : public std::exception {
 	
 		public:
-			const char *what(void) const throw();
+			const char *what() const throw();
 	};
 	
 	class GradeTooLowException : public std::exception {
 		
 		public:
-			const char *what(void) const throw();
+			const char *what() const throw();
 	};
 
 	class NoName : public std::exception {
 		
 		public:
-			const char *what(void) const throw();
+			const char *what() const throw();
 	};
 
 private:
+	Form	&operator=(Form const &other);
+
 	std::string	const	_name;
 	bool				_signed;
 	int const			_gradeSign;
