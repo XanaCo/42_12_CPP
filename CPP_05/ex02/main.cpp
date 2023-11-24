@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/24 18:02:25 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:59:48 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int main(void)
 
 		std::cout << std::endl;
 				
-		ShrubberyCreationForm one;
-		ShrubberyCreationForm two;
+		ShrubberyCreationForm one ("house");
+		ShrubberyCreationForm two ("target");
 
 		std::cout << one << std::endl;
 		std::cout << two << std::endl;

@@ -14,14 +14,30 @@
 # define SHRUBBERY_CREATION_FORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm {
 
-public:
-	ShrubberyCreationForm();
-	~ShrubberyCreationForm();
+	public:
+		ShrubberyCreationForm(std::string target);
+		~ShrubberyCreationForm();
 
-	void execute(Bureaucrat const &executor) const;
+		ShrubberyCreationForm(ShrubberyCreationForm const &copy);
+
+		std::string const &getTarget() const;
+		void execute(Bureaucrat const &executor) const;
+
+		class ShrubberyException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
+	
+	private:
+		ShrubberyCreationForm();
+		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const &other);
+	
+		std::string _target;
 
 };
 
