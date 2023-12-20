@@ -6,13 +6,13 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2023/12/20 22:11:49 by ancolmen         ###   ########.fr        #
+#    Updated: 2023/12/21 00:10:52 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #######	VARIABLES #######
 
-NAME		= MoreForms
+NAME		= InternForms
 
 SRC			= main.cpp \
 				Bureaucrat.cpp \
@@ -20,6 +20,7 @@ SRC			= main.cpp \
 				ShrubberyCreationForm.cpp \
 				RobotomyRequestForm.cpp \
 				PresidentialPardonForm.cpp \
+				Intern.cpp \
 
 BIN_PATH 	= ./bin/
 SRC_PATH 	= ./
