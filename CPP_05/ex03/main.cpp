@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/12/21 17:32:09 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:45:18 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@
 
 int main(void) {
 
-	try
+	Bureaucrat TheBoss("MrPresident", 1);
+	Bureaucrat MrNobody("NoOne", 149);
+
+	Intern oneIntern;
+	Intern copyIntern(oneIntern);
+	Intern anotherIntern;
+
+	AForm	*zero;
+	AForm	*one;
+	AForm	*two;
+	AForm	*three;
+
+	try 
 	{
-		Bureaucrat TheBoss("MrPresident", 1);
-		Bureaucrat MrNobody("NoOne", 149);
-		
-		Intern oneIntern;
-		Intern copyIntern(oneIntern);
-		Intern anotherIntern;
-
-		AForm	*zero;
-		AForm	*one;
-		AForm	*two;
-		AForm	*three;
-
-		//TEST Shrubbery
+	//TEST Shrubbery
 		std::cout << "	Shrubbery Test:" << std::endl;
 		std::cout << WHITE << "Intern should create a Shrubbery Form" << END_COLOR << std::endl;
 		one = oneIntern.makeForm("Shrubbery", "Beautiful");
@@ -45,15 +45,23 @@ int main(void) {
 			std::cout << one << " : " << *one << std::endl;
 			std::cout << WHITE << "TheBoss executes the Shrubbery" << END_COLOR << std::endl;
 			TheBoss.executeForm(*one);
-			// std::cout << WHITE << "MrNobody tries to execute the form" << END_COLOR << std::endl;
-			// one->execute(MrNobody);
+			std::cout << WHITE << "MrNobody tries to execute the form" << END_COLOR << std::endl;
+			one->execute(MrNobody);
 		}
 		else
 			std::cout << WHITE << "Nothing was created!" << END_COLOR << std::endl;
 
 		delete one;
-
-		//TEST Robotomy
+	}
+	catch(const std::exception& e)
+	{
+		delete one;
+		std::cerr << std::endl << YELLOW << "WARNING : " << e.what() << END_COLOR << std::endl;
+	}
+	
+	try
+	{
+	//TEST Robotomy
 		std::cout << "	Robotomy Test:" << std::endl;
 		std::cout << WHITE << "Intern should create a Robotomy Form" << END_COLOR << std::endl;
 		two = anotherIntern.makeForm("Robotomy", "Bender");
@@ -72,8 +80,16 @@ int main(void) {
 			std::cout << WHITE << "Nothing was created!" << END_COLOR << std::endl;
 
 		delete two;
-		
-		//TEST Presidential Pardon
+	}
+	catch(const std::exception& e)
+	{
+		delete two;
+		std::cerr << std::endl << YELLOW << "WARNING : " << e.what() << END_COLOR << std::endl;
+	}
+	
+	try
+	{
+	//TEST Presidential Pardon
 		std::cout << "	Presidential Pardon Test:" << std::endl;
 		std::cout << WHITE << "Intern should create a Presidential Pardon Form" << END_COLOR << std::endl;
 		three = copyIntern.makeForm("PresidentialPardon", "Marvin");
@@ -90,8 +106,16 @@ int main(void) {
 			std::cout << WHITE << "Nothing was created!" << END_COLOR << std::endl;
 
 		delete three;
+	}
+	catch(const std::exception& e)
+	{
+		delete three;
+		std::cerr << std::endl << YELLOW << "WARNING : " << e.what() << END_COLOR << std::endl;
+	}
 
-		//TEST Something Else
+	try
+	{
+	//TEST Something Else
 		std::cout << "	Something Else Test:" << std::endl;
 		std::cout << WHITE << "Intern tries to create something on his own" << END_COLOR << std::endl;
 		zero = oneIntern.makeForm("MarvelousCreation", "SomethingWeird");
@@ -108,10 +132,10 @@ int main(void) {
 			std::cout << WHITE << "Nothing was created!" << END_COLOR << std::endl;
 		
 		delete zero;
-	
 	}
 	catch(const std::exception& e)
 	{
+		delete zero;
 		std::cerr << std::endl << YELLOW << "WARNING : " << e.what() << END_COLOR << std::endl;
 	}
 
