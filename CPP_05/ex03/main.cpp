@@ -6,101 +6,114 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/12/21 00:14:24 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:32:09 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include "Intern.hpp"
 
-int	main(void) // test maxence!
-{
+int main(void) {
+
 	try
 	{
-		Intern		intern_0;
-		Intern		intern_1(intern_0);
-		Intern		intern_2;
-		Bureaucrat	boss("Max", 2);
-		AForm		*form0;
-		AForm		*form1;
-		AForm		*form2;
-		AForm		*form3;
-
-		std::cout << std::endl;
-		std::cout << "All intern are the same... " << std::endl;
-		intern_2 = intern_0;
-		std::cout << std::endl;
-
-		//RobotomyRequestForm
-		std::cout << "Boss: Intern ! I want you to make a robot of Daneel Olivaw" << std::endl;
-		form0 = intern_0.makeForm("robotomy request", "Daneel Olivaw");
-		if (form0)
-		{
-			std::cout << "Boss: Ok, let's have a look at what you made..." << std::endl;
-			std::cout << *form0 << std::endl;
-			boss.signForm(*form0);
-			std::cout << *form0 << std::endl;
-			boss.executeForm(*form0);
-			delete form0;
-		}
-		else
-			std::cout << "Boss: you idiot, you should know what I want anyway!" << std::endl;
-		std::cout << std::endl;
-
-		//PresidentialPardonForm
-		std::cout << "Boss: Intern ! I want you to make a presidential pardon form for Alfred Dreyfus" << std::endl;
-		form1 = intern_0.makeForm("presidential pardon", "Alfred Dreyfus");
-		if (form1)
-		{
-			std::cout << "Boss: Ok, let's have a look at what you made..." << std::endl;
-			std::cout << *form1 << std::endl;
-			boss.signForm(*form1);
-			std::cout << *form1 << std::endl;
-			boss.executeForm(*form1);
-			delete form1;
-		}
-		else
-			std::cout << "Boss: you idiot, you should know what I want anyway!" << std::endl;
-		std::cout << std::endl;
+		Bureaucrat TheBoss("MrPresident", 1);
+		Bureaucrat MrNobody("NoOne", 149);
 		
-		//ShrubberyCreationForm
-		std::cout << "Boss: Intern ! I want you to make a shrubbery creation form for the garden" << std::endl;
-		form2 = intern_0.makeForm("shrubbery creation", "Garden");
-		if (form2)
-		{
-			std::cout << "Boss: Ok, let's have a look at what you made..." << std::endl;
-			std::cout << *form2 << std::endl;
-			boss.signForm(*form2);
-			std::cout << *form2 << std::endl;
-			boss.executeForm(*form2);
-			delete form2;
-		}
-		else
-			std::cout << "Boss: you idiot, you should know what I want anyway!" << std::endl;
-		std::cout << std::endl;
+		Intern oneIntern;
+		Intern copyIntern(oneIntern);
+		Intern anotherIntern;
 
-		//Siomething else
-		std::cout << "Boss: Intern ! I want you to make a ********** form for M. Bean" << std::endl;
-		form3 = intern_0.makeForm("**********", "M. Bean");
-		if (form3)
+		AForm	*zero;
+		AForm	*one;
+		AForm	*two;
+		AForm	*three;
+
+		//TEST Shrubbery
+		std::cout << "	Shrubbery Test:" << std::endl;
+		std::cout << WHITE << "Intern should create a Shrubbery Form" << END_COLOR << std::endl;
+		one = oneIntern.makeForm("Shrubbery", "Beautiful");
+		if (one)
 		{
-			std::cout << "Boss: Ok, let's have a look at what you made..." << std::endl;
-			std::cout << *form3 << std::endl;
-			boss.signForm(*form3);
-			std::cout << *form3 << std::endl;
-			boss.executeForm(*form3);
-			delete form3;
+			std::cout << one << " : " << *one << std::endl;
+			std::cout << WHITE << "TheBoss signs the Shrubbery" << END_COLOR << std::endl;
+			TheBoss.signForm(*one);
+			std::cout << one << " : " << *one << std::endl;
+			std::cout << WHITE << "TheBoss executes the Shrubbery" << END_COLOR << std::endl;
+			TheBoss.executeForm(*one);
+			// std::cout << WHITE << "MrNobody tries to execute the form" << END_COLOR << std::endl;
+			// one->execute(MrNobody);
 		}
 		else
-			std::cout << "Boss: you idiot, you should know what I want anyway!" << std::endl;
-		std::cout << std::endl;
+			std::cout << WHITE << "Nothing was created!" << END_COLOR << std::endl;
+
+		delete one;
+
+		//TEST Robotomy
+		std::cout << "	Robotomy Test:" << std::endl;
+		std::cout << WHITE << "Intern should create a Robotomy Form" << END_COLOR << std::endl;
+		two = anotherIntern.makeForm("Robotomy", "Bender");
+		if (two)
+		{
+			std::cout << two << " : " << *two << std::endl;
+			std::cout << WHITE << "TheBoss signs the Robotomy" << END_COLOR << std::endl;
+			two->beSigned(TheBoss);
+			std::cout << two << " : " << *two << std::endl;
+			std::cout << WHITE << "TheBoss executes the Robotomy" << END_COLOR << std::endl;
+			two->execute(TheBoss);
+			std::cout << WHITE << "TheBoss re-executes the Robotomy" << END_COLOR << std::endl;
+			two->execute(TheBoss);
+		}
+		else
+			std::cout << WHITE << "Nothing was created!" << END_COLOR << std::endl;
+
+		delete two;
+		
+		//TEST Presidential Pardon
+		std::cout << "	Presidential Pardon Test:" << std::endl;
+		std::cout << WHITE << "Intern should create a Presidential Pardon Form" << END_COLOR << std::endl;
+		three = copyIntern.makeForm("PresidentialPardon", "Marvin");
+		if (three)
+		{
+			std::cout << three << " : " << *three << std::endl;
+			std::cout << WHITE << "TheBoss signs the PresidentialPardon" << END_COLOR << std::endl;
+			three->beSigned(TheBoss);
+			std::cout << three << " : " << *three << std::endl;
+			std::cout << WHITE << "TheBoss executes the PresidentialPardon" << END_COLOR << std::endl;
+			three->execute(TheBoss);
+		}
+		else
+			std::cout << WHITE << "Nothing was created!" << END_COLOR << std::endl;
+
+		delete three;
+
+		//TEST Something Else
+		std::cout << "	Something Else Test:" << std::endl;
+		std::cout << WHITE << "Intern tries to create something on his own" << END_COLOR << std::endl;
+		zero = oneIntern.makeForm("MarvelousCreation", "SomethingWeird");
+		if (zero)
+		{
+			std::cout << zero << " : " << *zero << std::endl;
+			std::cout << WHITE << "TheBoss signs the MarvelousCreation" << END_COLOR << std::endl;
+			zero->beSigned(TheBoss);
+			std::cout << zero << " : " << *zero << std::endl;
+			std::cout << WHITE << "TheBoss executes the MarvelousCreation" << END_COLOR << std::endl;
+			zero->execute(TheBoss);
+		}
+		else
+			std::cout << WHITE << "Nothing was created!" << END_COLOR << std::endl;
+		
+		delete zero;
+	
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << std::endl << YELLOW << "WARNING : " << e.what() << END_COLOR << std::endl;
 	}
-	return (0);
+
+	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/12/20 23:37:35 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:19:17 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ AForm::AForm(AForm const &copy) : _name(copy._name), _gradeSign(copy._gradeSign)
 
 	this->_signed = copy._signed;
 	
-	std::cout << WHITE
+	std::cout << B_GREEN
 				<< "Constructor: "
 				<< this->_name
 				<< " copy created"

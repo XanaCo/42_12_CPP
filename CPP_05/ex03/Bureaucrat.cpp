@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/12/20 23:36:56 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:54:51 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(MIN_GRADE) {
 	std::cout << GREEN
 				<< "Constructor: Unknown Bureaucrat created"
 				<< END_COLOR << std::endl;
-
-	return ;
 }
-
 
 Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade(grade) {
 
@@ -44,7 +41,7 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy._grade) {
 
-	std::cout << WHITE
+	std::cout << B_GREEN
 				<< "Constructor: Bureaucrat copy created"
 				<< END_COLOR << std::endl;
 
@@ -134,6 +131,7 @@ void Bureaucrat::signForm(AForm &form) {
 void Bureaucrat::executeForm(AForm const & form) {
 	
 	form.checkExecution(*this);
+	form.execute(*this);
 	
 	std::cout << this->_name << " executed " << form.getName() << std::endl;
 	

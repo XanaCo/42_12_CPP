@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/24 17:06:27 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:35:03 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int main(void)
 // TEST Creation High/low
 	try
 	{
-		Bureaucrat Paco("", 130);
-		//Bureaucrat Paco("Paquito", -1);
+		//Bureaucrat Paco("", 130);
+		Bureaucrat Paco("Paquito", -1);
 		//Bureaucrat Paco("Paquito", 1);
 		//Bureaucrat Paco("Paquito", 150);
 		//Bureaucrat Paco("Paquito", -111111111111111111);
@@ -63,9 +63,6 @@ int main(void)
 
 		Pepe.signForm(two); // TRY stops here, calls DESTRUCTORS and jumps to CATCH
 		std::cout << two << std::endl;
-
-		std::cout << "This line is here for nothing!" << std::endl;
-
 	}
 	catch(const std::exception &e)
 	{

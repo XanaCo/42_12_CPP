@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/12/20 23:34:37 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:25:59 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) {
 	this->_target = copy._target;
 	this->_robotomizations = copy._robotomizations;
 	
-	std::cout << WHITE
+	std::cout << B_GREEN
 				<< "Constructor: "
 				<< this->getName()
 				<< " copy created"

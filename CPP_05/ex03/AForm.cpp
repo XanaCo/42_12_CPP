@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/12/20 23:37:35 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:54:33 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ AForm::AForm() : _name("Unknown"), _gradeSign(MIN_GRADE), _gradeExec(MIN_GRADE) 
 				<< this->_name 
 				<< " created"
 				<< END_COLOR << std::endl;
-
-	return ;
 }
-
 
 AForm::AForm(std::string const name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec) {
 
@@ -44,21 +41,17 @@ AForm::AForm(std::string const name, int gradeSign, int gradeExec) : _name(name)
 			<< this->_name
 			<< " created"
 			<< END_COLOR << std::endl;
-
-	return ;
 }
 
 AForm::AForm(AForm const &copy) : _name(copy._name), _gradeSign(copy._gradeSign), _gradeExec(copy._gradeExec) {
 
 	this->_signed = copy._signed;
 	
-	std::cout << WHITE
+	std::cout << B_GREEN
 				<< "Constructor: "
 				<< this->_name
 				<< " copy created"
 				<< END_COLOR << std::endl;
-
-	return ;
 }
 
 /*::: DESTRUCTORS :::*/
@@ -70,8 +63,6 @@ AForm::~AForm() {
 			<< this->_name
 			<< " destroyed"
 			<< END_COLOR << std::endl;
-
-	return ;
 }
 
 /*::: Operator Overloading ::: */
@@ -132,7 +123,6 @@ void AForm::checkSignature(Bureaucrat const &executor) const {
 
 	if (executor.getGrade() > this->getGradeSign())
 		throw SignatureDenied();
-	
 }
 
 void AForm::checkExecution(Bureaucrat const &executor) const {

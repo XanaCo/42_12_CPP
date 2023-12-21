@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/24 17:05:33 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:31:05 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ Form::Form() : _name("Unknown"), _gradeSign(MIN_GRADE), _gradeExec(MIN_GRADE) {
 	std::cout << GREEN
 				<< "Constructor: Unknown Form created"
 				<< END_COLOR << std::endl;
-
-	return ;
 }
-
 
 Form::Form(std::string const name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec) {
 
@@ -42,19 +39,15 @@ Form::Form(std::string const name, int gradeSign, int gradeExec) : _name(name), 
 			<< this->_name
 			<< " Form created"
 			<< END_COLOR << std::endl;
-
-	return ;
 }
 
 Form::Form(Form const &copy) : _name(copy._name), _gradeSign(copy._gradeSign), _gradeExec(copy._gradeExec) {
 
 	this->_signed = copy._signed;
 	
-	std::cout << WHITE
+	std::cout << B_GREEN
 				<< "Constructor: Form copy created"
 				<< END_COLOR << std::endl;
-
-	return ;
 }
 
 /*::: DESTRUCTORS :::*/
@@ -66,8 +59,6 @@ Form::~Form() {
 			<< _name
 			<< " Form destroyed"
 			<< END_COLOR << std::endl;
-
-	return ;
 }
 
 /*::: Operator Overloading ::: */

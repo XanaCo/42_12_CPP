@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/12/20 22:22:04 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:07:02 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,22 @@
 # include <exception>
 # include "AForm.hpp"
 
-# define WHITE "\033[97;1m"
+# define B_RED "\033[91m"
+# define B_GREEN "\033[92m"
+# define B_YELLOW "\033[93m"
+# define B_BLUE "\033[94m"
+# define B_MAGENTA "\033[95m"
+# define B_CYAN "\033[96m"
+# define B_WHITE "\033[97m"
+
+# define RED "\033[31;1m"
+# define GREEN "\033[32;1m"
 # define YELLOW "\033[33;1m"
 # define BLUE "\033[34;1m"
-# define MAGENTA "\033[95;1m"
-# define RED "\033[31m"
-# define GREEN "\033[32m"
+# define MAGENTA "\033[35;1m"
+# define CYAN "\033[36;1m"
+# define WHITE "\033[37;1m"
+
 # define END_COLOR "\033[0m"
 
 # define MAX_GRADE 1

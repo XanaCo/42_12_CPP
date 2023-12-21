@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/12/20 23:34:57 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:56:07 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,17 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 				<< this->getName()
 				<< " copy created"
 				<< END_COLOR << std::endl;
-	return ;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy) {
 	
 	this->_target = copy._target;
 	
-	std::cout << WHITE
+	std::cout << B_GREEN
 				<< "Constructor: "
 				<< this->getName()
 				<< " copy created"
 				<< END_COLOR << std::endl;
-
-	return ;
 }
 
 
@@ -49,8 +46,6 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 			<< this->getName()
 			<< " destroyed"
 			<< END_COLOR << std::endl;
-
-	return ;
 }
 
 /*::: ACCESSORS :::*/
@@ -67,7 +62,6 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
 	this->checkExecution(executor);
 
 	std::cout << BLUE << this->_target << " has been pardoned by Zaphod Beeblebrox" << END_COLOR << std::endl;
-
 }
 
 /*::: EXCEPTIONS :::*/

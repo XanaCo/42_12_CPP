@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/24 15:52:39 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:28:35 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(MIN_GRADE) {
 	std::cout << GREEN
 				<< "Constructor: Unknown Bureaucrat created"
 				<< END_COLOR << std::endl;
-
-	return ;
 }
-
 
 Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade(grade) {
 
@@ -38,17 +35,13 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade
 			<< _name
 			<< " Bureaucrat created"
 			<< END_COLOR << std::endl;
-
-	return ;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy._grade) {
 
-	std::cout << WHITE
+	std::cout << B_GREEN
 				<< "Constructor: Bureaucrat copy created"
 				<< END_COLOR << std::endl;
-
-	return ;
 }
 
 /*::: DESTRUCTORS :::*/
@@ -60,8 +53,6 @@ Bureaucrat::~Bureaucrat() {
 			<< _name
 			<< " Bureaucrat destroyed"
 			<< END_COLOR << std::endl;
-
-	return ;
 }
 
 /*::: Operator Overloading ::: */
@@ -106,8 +97,6 @@ void Bureaucrat::bureaucratPromotion() {
 		throw GradeTooHighException();
 	else
 		_grade--;
-
-	return ;
 }
 void Bureaucrat::bureaucratDemotion() {
 
@@ -115,8 +104,6 @@ void Bureaucrat::bureaucratDemotion() {
 		throw GradeTooLowException();
 	else
 		_grade++;
-
-	return ;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {

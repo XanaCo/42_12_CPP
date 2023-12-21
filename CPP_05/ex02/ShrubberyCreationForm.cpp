@@ -23,20 +23,17 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubb
 				<< this->getName()
 				<< " copy created"
 				<< END_COLOR << std::endl;
-	return ;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) {
 	
 	this->_target = copy._target;
 	
-	std::cout << WHITE
+	std::cout << B_GREEN
 				<< "Constructor: "
 				<< this->getName()
 				<< " copy created"
 				<< END_COLOR << std::endl;
-
-	return ;
 }
 
 
@@ -49,8 +46,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 			<< this->getName()
 			<< " destroyed"
 			<< END_COLOR << std::endl;
-
-	return ;
 }
 
 /*::: ACCESSORS :::*/
@@ -91,7 +86,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 		<< "                  `-'  `-'`-'-'"
 		<< std::endl;
 	out.close();
-	
 }
 
 /*::: EXCEPTIONS :::*/

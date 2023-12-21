@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/11/24 15:08:04 by ancolmen         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:32:34 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ int main(void)
 		
 		Pepe.bureaucratDemotion(); // TRY stops here, calls DESTRUCTORS and jumps to CATCH
 
-		std::cout << "This line is here for nothing!" << std::endl;
-
 	}
 	catch(const std::exception &e)
 	{
@@ -79,8 +77,6 @@ int main(void)
 		std::cout << Jose << std::endl << std::endl;
 		
 		Jose.bureaucratPromotion(); // TRY stops here calls DESTRUCTORS and jumps to CATCH
-
-		std::cout << "This line is here for nothing!" << std::endl;
 
 	}
 	catch(const std::exception &e)
