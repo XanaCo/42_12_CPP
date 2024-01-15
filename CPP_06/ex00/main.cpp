@@ -16,11 +16,13 @@ int main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
-		ScalarConverter res;
-
-		res.convert(argv[1]);
-		
+		ScalarConverter::convert(argv[1]);
+		//return (EXIT_SUCCESS); // exit already
 	}
+	std::cerr << "Error : Wrong number of arguments" << std::endl;
+	return (EXIT_FAILURE);
+}
+
 	// 	./convert 0
 	// char: Non displayable
 	// int: 0
@@ -38,8 +40,4 @@ int main(int argc, char **argv)
 	// int: 42
 	// float: 42.0f
 	// double: 42.0
-
-	return 0;
-}
-
 

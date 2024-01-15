@@ -15,7 +15,7 @@
 NAME		= convert
 
 SRC			= main.cpp \
-				XX.cpp \
+				ScalarConverter.cpp \
 
 BIN_PATH 	= ./bin/
 SRC_PATH 	= ./
