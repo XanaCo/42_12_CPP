@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/19 16:19:08 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/19 19:34:40 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SCALAR_CONVERTER_HPP
 
 # include <iostream>
+# include <stdlib.h>
 # include <iomanip>
 # include <climits>
 # include <cfloat>
