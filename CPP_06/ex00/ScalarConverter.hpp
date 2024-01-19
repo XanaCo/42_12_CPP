@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2023/12/21 19:45:41 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:19:08 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define SCALAR_CONVERTER_HPP
 
 # include <iostream>
+# include <iomanip>
+# include <climits>
+# include <cfloat>
+# include <cmath>
+# include <math.h>
 
 # define B_RED "\033[91;1m"
 # define B_GREEN "\033[92;1m"
@@ -31,8 +36,6 @@
 # define WHITE "\033[37;1m"
 # define END_COLOR "\033[0m"
 
-# define PRINT true
-
 class ScalarConverter {
 
 public:
@@ -40,18 +43,17 @@ public:
 	
 	static void convert(std::string value);
 
-	static void convertChar(std::string value);
-	static void convertInt(double n);
-	static void convertFloat(double n);
-	static void convertDouble(double n);
-	static void convertInf(double n);
-	static void convertNan();
-
 private:
 	ScalarConverter();
 	ScalarConverter(ScalarConverter const &copy);
 	ScalarConverter	&operator=(ScalarConverter const &other);
 
+	static void convertChar(std::string value);
+	static void convertInt(double n);
+	static void convertFloat(double n, std::string value);
+	static void convertDouble(double n, std::string value);
+	static void convertInf(double n);
+	static void convertNan();
 };
 
 #endif
