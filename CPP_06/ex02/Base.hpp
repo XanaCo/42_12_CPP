@@ -1,40 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/20 17:14:45 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:33:14 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER
-# define SERIALIZER_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
-# include <iostream>
-# include <stdlib.h>
-# include <stdint.h>
-
-typedef struct s_Data {
-	bool alive;
-	std::string str;
-	int num;
-} Data;
-
-class Serializer {
+class Base {
 
 public:
-	~Serializer();
-	
-	static uintptr_t serialize(Data* ptr);
-	static Data* deserialize(uintptr_t raw);
-
-private:
-	Serializer();
-	Serializer(Serializer const &copy);
-	Serializer	&operator=(Serializer const &other);
+	virtual ~Base() {};
 
 };
 
