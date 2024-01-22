@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/20 19:48:50 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:51:04 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,26 @@ void identify(Base* p) {
 		std::cout << "'B'" << std::endl;
 	else if (dynamic_cast<C*>(p))
 		std::cout << "'C'" << std::endl;
-	else
-		std::cout << "The object is not from A, B or C class" << std::endl;
+	else if (dynamic_cast<A*>(p) == NULL || dynamic_cast<B*>(p) == NULL || dynamic_cast<C*>(p) == NULL)
+		std::cout << "The object is not from A, B or C class. (*)" << std::endl;
 
 }
 
 void identify(Base& p) {
 	
-	if (dynamic_cast<A*>(&p))
-		std::cout << "'A'" << std::endl;
-	else if (dynamic_cast<B*>(&p))
-		std::cout << "'B'" << std::endl;
-	else if (dynamic_cast<C*>(&p))
-		std::cout << "'C'" << std::endl;
-	else
-		std::cout << "The object is not from A, B or C class" << std::endl;
+	try
+	{
+		if (dynamic_cast<A*>(&p))
+			std::cout << "'A'" << std::endl;
+		else if (dynamic_cast<B*>(&p))
+			std::cout << "'B'" << std::endl;
+		else if (dynamic_cast<C*>(&p))
+			std::cout << "'C'" << std::endl;
+		else
+			throw 404;
+	}
+	catch (int error)
+	{
+		std::cerr << "The object is not from A, B or C class. (&)" << std::endl;
+	}
 }

@@ -6,7 +6,7 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2024/01/20 18:24:21 by ancolmen         ###   ########.fr        #
+#    Updated: 2024/01/22 15:03:24 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 NAME		= Base
 
 SRC			= main.cpp \
+				Base.cpp \
 				functions.cpp \
 
 BIN_PATH 	= ./bin/
