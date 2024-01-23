@@ -6,14 +6,12 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/23 20:24:30 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/23 21:23:53 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
-
-# include "Array.tpp"
 
 template<typename T>
 class Array {
@@ -35,10 +33,17 @@ public:
 			const char *what() const throw();
 	};
 
+	class AllocationFailed : public std::exception {
+
+		public:
+			const char *what() const throw();
+	};
+
 private:
 	T *_array;
-	unsigned int _size;
+	unsigned int const _size;
 
 };
 
+# include "Array.tpp"
 #endif
