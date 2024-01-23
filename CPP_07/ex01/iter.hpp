@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/20 20:30:01 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:52:57 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,23 @@
 # define ITER_HPP
 
 template<typename T>
-void iter(T a, T b, T c) {
+void iter(T *array, int size, void(*f)(T const &block)) {
 
+	if (size <= 0)
+	{
+		std::cerr << "Error : Wrong array size located in " << array << std::endl;
+		return;
+	}
+	for (int i = 0; i < size; i++)
+		(*f)(array[i]);
 
 }
+
+template<typename T>
+void printBlock(T const &block) {
+
+	std::cout << block << std::endl;
+}
+
 
 #endif
