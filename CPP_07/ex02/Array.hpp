@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/23 19:10:23 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:11:25 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,9 @@ template<typename T>
 class Array {
 	
 };
+
+
+
+btrbrwbtrw
 
 #endif
