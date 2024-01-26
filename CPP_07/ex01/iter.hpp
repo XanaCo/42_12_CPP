@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/23 18:52:57 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:28:14 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void iter(T *array, int size, void(*f)(T const &block)) {
 	}
 	for (int i = 0; i < size; i++)
 		(*f)(array[i]);
-
 }
 
 template<typename T>
@@ -31,6 +30,5 @@ void printBlock(T const &block) {
 
 	std::cout << block << std::endl;
 }
-
 
 #endif

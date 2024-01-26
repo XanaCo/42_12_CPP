@@ -6,7 +6,7 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2024/01/20 20:05:01 by ancolmen         ###   ########.fr        #
+#    Updated: 2024/01/26 15:35:08 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@
 
 NAME		= array
 
-SRC			= main.cpp \
-				
+SRC			= main.cpp
 
 BIN_PATH 	= ./bin/
 SRC_PATH 	= ./

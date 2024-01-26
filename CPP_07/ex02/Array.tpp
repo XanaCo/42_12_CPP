@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/23 21:24:07 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:44:30 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ Array<T> &Array<T>::operator=(Array<T> const &other) {
 }
 
 template<typename T>
-T &Array<T>::operator[](unsigned int pos) {
+T &Array<T>::operator[](unsigned int pos) const {
 
 	if (pos < 0 || pos >= this->_size)
 		throw OutOfBoundaries();
