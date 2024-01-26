@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/26 15:44:30 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/26 17:19:25 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ Array<T>::Array(unsigned int n) : _size(n) {
 		throw OutOfBoundaries();
 
 	this->_array = new T[this->_size];
+
+	for (unsigned int i = 0; i < this->_size; i++)
+		this->_array[i] = 0;
+	
 	if (!this->_array)
 		throw AllocationFailed();
 	
