@@ -35,15 +35,15 @@ int main()
 	try
 	{
 		std::cout << GREEN << "Is there a 2 in my <vector> :" << END_COLOR << std::endl;
-		resV = *easyfind< std::vector<int> >(aVector, 2);
+		resV = easyfind< std::vector<int> >(aVector, 2);
 		std::cout << resV << std::endl;
 
 		std::cout << GREEN << "Is there a 7 in my <vector> :" << END_COLOR << std::endl;
-		resV = *easyfind< std::vector<int> >(aVector, 7);
+		resV = easyfind< std::vector<int> >(aVector, 7);
 		std::cout << resV << std::endl;
 
 		std::cout << GREEN << "Is there a 42 in my <vector> :" << END_COLOR << std::endl;
-		resV = *easyfind< std::vector<int> >(aVector, 42);
+		resV = easyfind< std::vector<int> >(aVector, 42);
 		std::cout << resV << std::endl;
 	}
 	catch(const std::exception& e)
@@ -70,15 +70,15 @@ int main()
 	try
 	{
 		std::cout << GREEN << "Is there a 42 in my <list> :" << END_COLOR << std::endl;
-		resL = *easyfind< std::list<int> >(aList, 42);
+		resL = easyfind< std::list<int> >(aList, 42);
 		std::cout << resL << std::endl;
 
 		std::cout << GREEN << "Is there a 39 in my <list> :" << END_COLOR << std::endl;
-		resL = *easyfind< std::list<int> >(aList, 39);
+		resL = easyfind< std::list<int> >(aList, 39);
 		std::cout << resL << std::endl;
 
 		std::cout << GREEN << "Is there a -42 in my <list> :" << END_COLOR << std::endl;
-		resL = *easyfind< std::list<int> >(aList, -42);
+		resL = easyfind< std::list<int> >(aList, -42);
 		std::cout << resL << std::endl;
 	}
 	catch(const std::exception& e)

@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/29 19:29:44 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:02:34 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
-# include <algorithm>
 # include <iterator>
+# include <set>
 
-template<typename T>
-typename T::const_iterator easyfind(T const &container, int const element) {
+class Span {
+
+public:
+	Span(unsigned int const n);
+	Span(Span const &copy);
+	~Span();
 	
-	typename T::const_iterator it;
+	Span	&operator=(Span const &other);
+	
+	//addNumber(int numToAdd);
+	//shortestSpan();
+	//longestSpan();
 
-	it = std::find(container.begin(), container.end(), element);
+	//exceptions : empty || onlyOne
 
-	if (it == container.end())
-		throw std::range_error("Error : Element not found in range");
+private:
+	unsigned int const _nMax;
+	std::set<int> _span;
 
-	return it;
-}
+};
 
 #endif
