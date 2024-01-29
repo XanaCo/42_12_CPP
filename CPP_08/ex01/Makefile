@@ -6,7 +6,7 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2024/01/29 17:43:07 by ancolmen         ###   ########.fr        #
+#    Updated: 2024/01/29 23:12:25 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@
 
 NAME		= Span
 
-SRC			= main.cpp
+SRC			= main.cpp \
+				Span.cpp
 
 BIN_PATH 	= ./bin/
 SRC_PATH 	= ./
