@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/31 18:24:10 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:13:36 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
 # include <iostream>
 # include <iterator>
 # include <cstdlib>
+# include <stack>
 # include <set>
 # include <list>
 # include <deque>
@@ -31,37 +32,24 @@
 
 # define PRINT true
 
-
-class Span {
+template <typename T>
+class MutantStack : public std::stack<T> {
 
 public:
-	Span(unsigned int const n);
-	Span(Span const &copy);
-	~Span();
-	
-	unsigned int getnMax() const;
-	std::set<int> getSpan() const;
+	MutantStack() : std::stack<T>() {}
+	MutantStack(MutantStack const &copy) : std::stack<T>(copy) {}
+	virtual ~MutantStack() {}
 
-	void addNumber(int numToAdd);
-	int shortestSpan() const;
-	int longestSpan() const;
-	
-	template <typename T>
-	void addRange(T begin, T end) {
-
-	if (_span.size() + std::distance(begin, end) > _nMax)
-		throw std::range_error("Error : nMax atteinted");
-
-	_span.insert(begin, end);
-	
+	MutantStack	&operator=(MutantStack const &other) {
+		if (this != &other)
+			std::stack<T>::operator=(other);
+		return *this;
 	}
 
-private:
-	Span	&operator=(Span const &other);
-
-	unsigned int const _nMax;
-	std::set<int> _span;
-
+	typedef typename std::stack<T>::container_type::iterator iterator;
+	iterator begin() { return (std::stack<T>::c.begin()); }
+	iterator end() { return (std::stack<T>::c.end()); }
+	
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/01/29 23:38:29 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:25:50 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ Span::Span(unsigned int const n) : _nMax(n) {
 
 Span::Span(Span const &copy) : _nMax(copy._nMax) {
 
-
-//copy _span 
+	_span.insert(copy._span.begin(), copy._span.end());
 
 	if (PRINT)
 		std::cout << GREEN << "Constructor: Span copy created" << END_COLOR << std::endl;
@@ -66,13 +65,17 @@ int Span::shortestSpan() const {
 	if (_span.size() < 2)
 		throw std::range_error("Error : Not enough elements for shortestSpan");
 	
-	int shorty;
-	std::set<int>::iterator it;
-	
-	for (it = _span.begin(); it != _span.end(); it++)
-		shorty = *(_span.upper_bound(*it));
-	
-	//shorty = *(_span.end()) - shorty;
+	std::set<int>::iterator it = _span.begin();
+	int shorty = *(_span.end());
+
+	while (++it != _span.end())
+	{
+		std::set<int>::iterator prev = it;
+		std::advance(prev, -1);
+		int currentSpan = *it - *prev;
+		
+		shorty = std::min(shorty, currentSpan);
+	}
 
 	return shorty;
 }
@@ -81,16 +84,9 @@ int Span::longestSpan() const {
 
 	if (_span.size() < 2)
 		throw std::range_error("Error : Not enough elements for longestSpan");
-	
-	int longy;
-	std::set<int>::iterator it;
 
-	for (it = _span.begin(); it != _span.end(); it++)
-		longy = *(_span.lower_bound(*it));
-
-	longy = longy - *(_span.begin());
+	int longy = *(--_span.end()) - *(_span.begin());
 
 	return longy;
 }
 
-//function range a faire
