@@ -6,13 +6,13 @@
 #    By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 18:07:11 by ancolmen          #+#    #+#              #
-#    Updated: 2024/01/31 18:35:55 by ancolmen         ###   ########.fr        #
+#    Updated: 2024/02/01 18:03:17 by ancolmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #######	VARIABLES #######
 
-NAME		= MutatedAbomination
+NAME		= Mutant
 
 SRC			= main.cpp
 
