@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/09 19:01:30 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/10 20:19:36 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,23 @@ class DataBase {
 
 		void checkFileValid();
 		bool checkHeaderFormat(std::string const &line);
+		
 		bool checkLineFormat(std::string const &line);
-		bool checkDate(std::string const &date);
-		bool checkNum(std::string const &date);
+		bool checkInputDate(std::string const &date);
+		bool checkInputNum(float const &number);
 
-		void openStock();
+		void openLoadRead();
+		void loadDataBase(std::string line);
+		void readInput(std::string line);
+
+		void setData(std::string const &date, float const &number);
+
+		std::string getFilePath() const;
+		std::string getFormat()const;
+		std::string getHeader();
+		std::string getError();
+		std::string getSeparator();
+		std::map<std::string, float> getData();
 
 		class DataError : public std::exception {
 			
@@ -74,9 +86,9 @@ class DataBase {
 		std::string const _filePath;
 		std::string const _format;
 		std::string _header;
-		std::string _error;
 		std::string _separator;
 		std::map<std::string, float> _data;
+		std::string _errorPrint;
 
 };
 
