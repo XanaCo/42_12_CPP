@@ -14,17 +14,16 @@
 
 int main(int argc, char **argv)
 {
-	if (argc > 2)
+	if (argc != 2)
 	{
-		std::cerr << RED << "Error : Wrong number of arguments" << END_COLOR << std::endl;
+		std::cerr << RED << "Error: Wrong number of arguments" << END_COLOR << std::endl;
 		return (EXIT_FAILURE);
 	}
 	try
 	{
-		DataBase input(argv[1], IN_FORMAT);
-		DataBase data(DB_FILE, DB_FORMAT);
+		DataBase input(argv[1]);
 
-		doTheMath(input, data);
+		input.openLoadRead(argv[1], IN_HEADER);
 	}
 	catch(const std::exception& e)
 	{

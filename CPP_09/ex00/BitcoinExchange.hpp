@@ -25,7 +25,6 @@
 # include <map>
 # include <sys/stat.h>
 
-
 # define RED "\033[31;1m"
 # define GREEN "\033[32;1m"
 # define YELLOW "\033[33;1m"
@@ -35,34 +34,36 @@
 # define VALID 1
 # define NOT_VALID 0
 
-# define DB_FILE "data.csv"
-# define IN_FORMAT ".txt"
+# define DB_PATHFILE "data.csv"
 # define DB_FORMAT ".csv"
+# define IN_FORMAT ".txt"
+# define IN_SEPARATOR " | "
+# define DB_SEPARATOR ","
+# define IN_HEADER "date | value"
+# define DB_HEADER "date,exchange_rate"
+
+enum fileType {
+	INPUT,
+	DB
+};
 
 class DataBase {
 	
 	public:
-		DataBase(std::string filePath, std::string format);
+		DataBase(std::string filePath);
 		~DataBase();
 
-		void checkFileValid();
-		bool checkHeaderFormat(std::string const &line);
-		
-		bool checkLineFormat(std::string const &line);
+		void checkFileValid(std::string filePath, std::string format);
+		void openLoadRead(std::string filePath, std::string const format);
+		bool checkHeaderFormat(std::string const &line, std::string header);
+		bool checkLineFormat(std::string date, std::string num, fileType file);	
+		bool checkInputNum(float const &number, fileType file);
 		bool checkInputDate(std::string const &date);
-		bool checkInputNum(float const &number);
-
-		void openLoadRead();
-		void loadDataBase(std::string line);
-		void readInput(std::string line);
+		bool loadDataBase(std::string line);
+		bool readInput(std::string line);
 
 		void setData(std::string const &date, float const &number);
-
-		std::string getFilePath() const;
-		std::string getFormat()const;
-		std::string getHeader();
 		std::string getError();
-		std::string getSeparator();
 		std::map<std::string, float> getData();
 
 		class DataError : public std::exception {
@@ -83,16 +84,9 @@ class DataBase {
 		DataBase(DataBase const &copy);
 		DataBase &operator=(DataBase const &other);
 		
-		std::string const _filePath;
-		std::string const _format;
-		std::string _header;
-		std::string _separator;
 		std::map<std::string, float> _data;
 		std::string _errorPrint;
 
 };
-
-void doTheMath(DataBase &input, DataBase &data);
-
 
 #endif
