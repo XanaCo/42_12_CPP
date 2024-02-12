@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/10 20:19:36 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:03:13 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sstream>
 # include <exception>
 # include <algorithm>
+
 # include <stack>
 
 # define RED "\033[31;1m"

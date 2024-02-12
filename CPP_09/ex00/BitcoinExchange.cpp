@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/10 20:46:24 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:14:39 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,7 +208,7 @@ bool DataBase::checkInputNum(float const &number, fileType file) {
 
 	if (file == DB)
 	{
-		if (number < 0 || number > INT_MAX)
+		if (number < 0 || number > FLT_MAX)
 		{
 			_errorPrint = "Error: wrong range of prices in data.csv";
 			return NOT_VALID;

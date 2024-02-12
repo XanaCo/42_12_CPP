@@ -6,22 +6,34 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/10 20:35:30 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:20:24 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
 int main(int argc, char **argv)
 {
-	if (argc < 2) // secuence de chiffres!!
+	if (argc < 2)
 	{
 		std::cerr << RED << "Error: Wrong number of arguments" << END_COLOR << std::endl;
 		return (EXIT_FAILURE);
 	}
 	try
 	{
-		// start here
+		PmergeMe sortNum(argc, argv);
+
+		std::cout << "Before :  ";
+		printVector(sortNum.getArray());
+	
+		sortNum.sort(sortNum.getArray());
+		sortNum.sort(sortNum.getList());
+
+		std::cout << "After :  ";
+		printVector(sortNum.getList());
+
+		sortNum.time(sortNum.getArray());
+		sortNum.time(sortNum.getList());
 	}
 	catch(const std::exception& e)
 	{

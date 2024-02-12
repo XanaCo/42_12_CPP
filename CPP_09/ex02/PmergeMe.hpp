@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/10 20:19:36 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:25:04 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,30 @@
 # define YES 1
 # define NO 0
 
+# define DIGIT "0123456789"
+# define LIST "std::list<int>"
+# define VECTOR "std::vector<int>"
+
 class PmergeMe {
 	
 	public:
-		PmergeMe();
+		PmergeMe(int size, char **listNum);
 		~PmergeMe();
 
-		//methods
+		template<typename T>
+		void sort(T container);
 
-		//get set
+		template<typename T>
+		void time(T container) {
+
+			std::cout << "Time to process a range of " << _size << " elements with " << container.getType() <<" : ";
+			//getType, getTime
+
+		}
+
+		std::vector<int> getArray() const;
+		std::list<int> getList() const;
+		std::string getType();
 
 		class PmergeMeError : public std::exception {
 			
@@ -54,11 +69,19 @@ class PmergeMe {
 		};
 
 	private:
+		PmergeMe();
 		PmergeMe(PmergeMe const &copy);
 		PmergeMe &operator=(PmergeMe const &other);
 		
-		//vars
+		std::vector<int>	_array;
+		std::list<int>		_list;
+		int					_size;
+		int					_timeArray;
+		int					_timeList;
 
 };
+
+template<typename T>
+void	printVector(T container);
 
 #endif

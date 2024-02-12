@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/10 20:19:36 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:03:07 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@
 # include <cstdlib>
 # include <exception>
 # include <algorithm>
-# include <map>
 # include <sys/stat.h>
+# include <cfloat>
+
+# include <map>
 
 # define RED "\033[31;1m"
 # define GREEN "\033[32;1m"
