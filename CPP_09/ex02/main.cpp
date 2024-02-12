@@ -24,13 +24,13 @@ int main(int argc, char **argv)
 		PmergeMe sortNum(argc, argv);
 
 		std::cout << "Before :  ";
-		printVector(sortNum.getArray());
+		printContainer(sortNum.getArray());
 	
 		sortNum.sort(sortNum.getArray());
 		sortNum.sort(sortNum.getList());
 
 		std::cout << "After :  ";
-		printVector(sortNum.getList());
+		printContainer(sortNum.getList());
 
 		sortNum.time(sortNum.getArray());
 		sortNum.time(sortNum.getList());

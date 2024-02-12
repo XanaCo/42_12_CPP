@@ -53,23 +53,6 @@ std::list<int> PmergeMe::getList() const {
 //	METHODS
 // ************************************************************************** //
 
-template<typename T>
-void PmergeMe::sort(T container) {
-
-	if (container == VECTOR)
-		std::cout << "vector sorting time" << std::endl;
-	if (container == LIST)
-		std::cout << "list sorting time" << std::endl;
-
-}
-
-// template<typename T>
-// void PmergeMe::time(T container) {
-
-// 	std::cout << "Time to process a range of " << _size << " elements with " << container << " : ";
-
-// }
-
 std::string PmergeMe::getType() {
 	
 	return "TYPE tofind";
@@ -86,13 +69,4 @@ PmergeMe::PmergeMeError::~PmergeMeError() throw() {}
 const char *PmergeMe::PmergeMeError::what() const throw() {
 
 	return _errorMsg.c_str();
-}
-
-template<typename T>
-void	printVector(T container) {
-
-	for (size_t i = 0; i < container.size(); i++)
-		std::cout << container[i] << " ";
-	
-	std::cout << std::endl;
 }

@@ -41,14 +41,19 @@ class PmergeMe {
 		~PmergeMe();
 
 		template<typename T>
-		void sort(T container);
+		void sort(T container) {
+	
+			(void)container;
+			std::cout << "sorting time" << std::endl;
+		}
 
 		template<typename T>
 		void time(T container) {
 
-			std::cout << "Time to process a range of " << _size << " elements with " << container.getType() <<" : ";
+			(void)container;
+			std::cout << "Time to process a range of "
+				<< _size << " elements with " << "container.getType() "<<" : ";
 			//getType, getTime
-
 		}
 
 		std::vector<int> getArray() const;
@@ -81,7 +86,17 @@ class PmergeMe {
 
 };
 
-template<typename T>
-void	printVector(T container);
+template <typename T>
+void printContainer(T container) {
+    typename T::iterator it = container.begin();
+    typename T::iterator ite = container.end();
+
+    while (it != ite) {
+        std::cout << *it;
+        if (++it != ite)
+            std::cout << " ";
+    }
+    std::cout << std::endl;
+}
 
 #endif
