@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/12 19:25:04 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:11:15 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sstream>
 # include <exception>
 # include <algorithm>
+# include <typeinfo>
 
 # include <vector>
 # include <list>
@@ -40,28 +41,51 @@ class PmergeMe {
 		PmergeMe(int size, char **listNum);
 		~PmergeMe();
 
-		template<typename T>
-		void sort(T container) {
-	
-			(void)container;
-			std::cout << "sorting time" << std::endl;
-		}
-
-		template<typename T>
-		void time(T container) {
-
-			(void)container;
-			std::cout << "Time to process a range of "
-				<< _size << " elements with " << "container.getType() "<<" : ";
-			//getType, getTime
-		}
-
+		int getSize() const;
 		std::vector<int> getArray() const;
 		std::list<int> getList() const;
-		std::string getType();
+
+		template<typename Container>
+		void sort(Container container) {
+			
+			if (getType(container) == LIST)
+				std::cout << "List sorting func " << std::endl;
+				
+			if (getType(container) == VECTOR)
+				std::cout << "Vector sorting func " << std::endl;
+		}
+
+		template<typename Container>
+		void time(Container container) {
+
+			std::string cont;
+			
+			if (getType(container) == LIST)
+				cont = LIST;
+				
+			if (getType(container) == VECTOR)
+				cont = VECTOR;
+				
+			std::cout << "Time to process a range of "
+				<< _size << " elements with " << cont << " : " << std::endl;
+		}
+
+		template<typename Container>
+		std::string getType(Container const &container) {
+	
+			(void)container;
+			
+			if (typeid(Container) == typeid(std::vector<int>))
+				return VECTOR;
+				
+			if (typeid(Container) == typeid(std::list<int>))
+				return LIST;
+				
+			return "Unknown";
+		}
 
 		class PmergeMeError : public std::exception {
-			
+
 			public:
 				PmergeMeError(std::string errorMsg) throw();
 				~PmergeMeError() throw();
@@ -70,7 +94,6 @@ class PmergeMe {
 
 			private:
 				std::string _errorMsg;
-
 		};
 
 	private:
@@ -79,24 +102,26 @@ class PmergeMe {
 		PmergeMe &operator=(PmergeMe const &other);
 		
 		std::vector<int>	_array;
-		std::list<int>		_list;
-		int					_size;
 		int					_timeArray;
+		std::list<int>		_list;
 		int					_timeList;
+		int					_size;
 
 };
 
 template <typename T>
 void printContainer(T container) {
-    typename T::iterator it = container.begin();
-    typename T::iterator ite = container.end();
+	
+	typename T::iterator it = container.begin();
+	typename T::iterator ite = container.end();
 
-    while (it != ite) {
-        std::cout << *it;
-        if (++it != ite)
-            std::cout << " ";
-    }
-    std::cout << std::endl;
+	while (it != ite)
+	{
+		std::cout << *it;
+		if (++it != ite)
+			std::cout << " ";
+	}
+	std::cout << std::endl;
 }
 
 #endif

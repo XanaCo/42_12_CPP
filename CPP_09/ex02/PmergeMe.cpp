@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/12 19:28:35 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:48:00 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //	CONSTRUCTOR / DESTRUCTOR
 // ************************************************************************** //
 
-PmergeMe::PmergeMe(int size, char **listNum) : _size(size) {
+PmergeMe::PmergeMe(int size, char **listNum) : _size(size - 1) {
 
 	for (int i = 1; i < size; ++i)
 	{
@@ -30,7 +30,6 @@ PmergeMe::PmergeMe(int size, char **listNum) : _size(size) {
 		_array.push_back(atoi(listNum[i]));
 		_list.push_back(atoi(listNum[i]));
 	}
-
 }
 
 PmergeMe::~PmergeMe() {}
@@ -49,14 +48,50 @@ std::list<int> PmergeMe::getList() const {
 	return this->_list;
 }
 
+int PmergeMe::getSize() const {
+
+	return this->_size;
+}
+
+// template<typename Container>
+// std::string PmergeMe::getType(Container const &container) {
+	
+// 	(void)container;
+	
+// 	if (typeid(Container) == typeid(std::vector<int>))
+// 		return VECTOR;
+		
+// 	if (typeid(Container) == typeid(std::list<int>))
+// 		return LIST;
+		
+// 	return "Unknown";
+// }
+
 // ************************************************************************** //
 //	METHODS
 // ************************************************************************** //
 
-std::string PmergeMe::getType() {
+// template<typename Container>
+// void PmergeMe::time(Container container) {
+
+// 	std::string cont;
 	
-	return "TYPE tofind";
-}
+// 	if (getType(container) == LIST)
+// 		cont = LIST;
+		
+// 	if (getType(container) == VECTOR)
+// 		cont = VECTOR;
+		
+// 	std::cout << "Time to process a range of "
+// 		<< getSize() << " elements with " << cont << " : " << std::endl;
+// }
+
+// template<typename Container>
+// void PmergeMe::sort(Container container) {
+	
+// 	(void)container;
+// 	std::cout << "sorting time" << std::endl;
+// }
 
 // ************************************************************************** //
 //	EXCEPTIONS
