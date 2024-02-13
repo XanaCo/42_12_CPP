@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/13 18:48:10 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:32:20 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void PmergeMe::mergeVector(std::vector<int> &array, int left, int mid, int right
 void PmergeMe::mergeList(std::list<int> &list, std::list<int> &left, std::list<int> &right) {
 	
 	list.clear();
+
 	std::list<int>::iterator lit = left.begin();
 	std::list<int>::iterator rit = right.begin();
 
