@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/13 15:11:15 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:09:35 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <exception>
 # include <algorithm>
 # include <typeinfo>
+# include <ctime>
 
 # include <vector>
 # include <list>
@@ -46,42 +47,20 @@ class PmergeMe {
 		std::list<int> getList() const;
 
 		template<typename Container>
-		void sort(Container container) {
+		double sort(Container container) {
 			
-			if (getType(container) == LIST)
-				std::cout << "List sorting func " << std::endl;
-				
-			if (getType(container) == VECTOR)
-				std::cout << "Vector sorting func " << std::endl;
-		}
-
-		template<typename Container>
-		void time(Container container) {
-
-			std::string cont;
-			
-			if (getType(container) == LIST)
-				cont = LIST;
-				
-			if (getType(container) == VECTOR)
-				cont = VECTOR;
-				
-			std::cout << "Time to process a range of "
-				<< _size << " elements with " << cont << " : " << std::endl;
-		}
-
-		template<typename Container>
-		std::string getType(Container const &container) {
+			clock_t time = clock();
 	
-			(void)container;
-			
 			if (typeid(Container) == typeid(std::vector<int>))
-				return VECTOR;
+				fordJohnsonVector(_array, 0, _size - 1);
 				
-			if (typeid(Container) == typeid(std::list<int>))
-				return LIST;
-				
-			return "Unknown";
+			else if (typeid(Container) == typeid(std::list<int>))
+				fordJohnsonList(_list);
+
+			time = clock() - time;
+			
+			(void)container;
+			return time * 1000000 / CLOCKS_PER_SEC;
 		}
 
 		class PmergeMeError : public std::exception {
@@ -101,19 +80,23 @@ class PmergeMe {
 		PmergeMe(PmergeMe const &copy);
 		PmergeMe &operator=(PmergeMe const &other);
 		
+		void fordJohnsonVector(std::vector<int> &array, int left, int right);
+		void fordJohnsonList(std::list<int> &list);
+
+		void mergeVector(std::vector<int> &array, int left, int mid, int right);
+		void mergeList(std::list<int> &list, std::list<int> &left, std::list<int> &right);
+		
 		std::vector<int>	_array;
-		int					_timeArray;
 		std::list<int>		_list;
-		int					_timeList;
 		int					_size;
 
 };
 
-template <typename T>
-void printContainer(T container) {
+template <typename Container>
+void printContainer(Container container) {
 	
-	typename T::iterator it = container.begin();
-	typename T::iterator ite = container.end();
+	typename Container::iterator it = container.begin();
+	typename Container::iterator ite = container.end();
 
 	while (it != ite)
 	{

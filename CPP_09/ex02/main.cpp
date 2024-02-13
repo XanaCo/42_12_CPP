@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/13 15:11:20 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:21:51 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,25 @@ int main(int argc, char **argv)
 	}
 	try
 	{
-		PmergeMe sortNum(argc, argv);
+		PmergeMe data(argc, argv);
 
-		std::cout << "Before :  ";
-		printContainer(sortNum.getArray());
+		std::cout << YELLOW << "Before :  " << END_COLOR;
+		printContainer(data.getArray());
+
+		// std::cout << GREEN << "Before (list) : " << END_COLOR;//
+		// printContainer(data.getList());//
 	
-		sortNum.sort(sortNum.getArray());
-		sortNum.sort(sortNum.getList());
+		double vectorTime = data.sort(data.getArray());
+		double listTime = data.sort(data.getList());
 
-		std::cout << "After :  ";
-		printContainer(sortNum.getList());
+		std::cout << GREEN << "After  :  " << END_COLOR;
+		printContainer(data.getArray());
+		
+		// std::cout << GREEN << "After (list) :  " << END_COLOR;//
+		// printContainer(data.getList());//
 
-		sortNum.time(sortNum.getArray());
-		sortNum.time(sortNum.getList());
+		std::cout << WHITE << "Time to process a range of " << data.getSize() << " elements with " << VECTOR << " : " << vectorTime << " us" << END_COLOR << std::endl;
+		std::cout << WHITE << "Time to process a range of " << data.getSize() << " elements with " << LIST << " : " << listTime << " us" << END_COLOR << std::endl;
 	}
 	catch(const std::exception& e)
 	{

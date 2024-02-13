@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/13 14:48:00 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:48:10 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,45 +53,117 @@ int PmergeMe::getSize() const {
 	return this->_size;
 }
 
-// template<typename Container>
-// std::string PmergeMe::getType(Container const &container) {
-	
-// 	(void)container;
-	
-// 	if (typeid(Container) == typeid(std::vector<int>))
-// 		return VECTOR;
-		
-// 	if (typeid(Container) == typeid(std::list<int>))
-// 		return LIST;
-		
-// 	return "Unknown";
-// }
-
 // ************************************************************************** //
 //	METHODS
 // ************************************************************************** //
 
-// template<typename Container>
-// void PmergeMe::time(Container container) {
-
-// 	std::string cont;
+void PmergeMe::mergeVector(std::vector<int> &array, int left, int mid, int right) {
 	
-// 	if (getType(container) == LIST)
-// 		cont = LIST;
-		
-// 	if (getType(container) == VECTOR)
-// 		cont = VECTOR;
-		
-// 	std::cout << "Time to process a range of "
-// 		<< getSize() << " elements with " << cont << " : " << std::endl;
-// }
+	int sizeLeft = mid - left + 1;
+	int sizeRight = right - mid;
 
-// template<typename Container>
-// void PmergeMe::sort(Container container) {
+	std::vector<int> Left(sizeLeft);
+	std::vector<int> Right(sizeRight);
+
+	for (int i = 0; i < sizeLeft; ++i)
+		Left[i] = array[left + i];
+	for (int i = 0; i < sizeRight; ++i)
+		Right[i] = array[mid + 1 + i];
+
+	int i = 0, j = 0, k = left;
+
+	while (i < sizeLeft && j < sizeRight) 
+	{
+ 		if (Left[i] <= Right[j])
+		{
+			array[k] = Left[i];
+			i++;
+		}
+		else
+		{
+			array[k] = Right[j];
+			j++;
+		}
+		k++;
+	}
+
+	while (i < sizeLeft)
+	{
+		array[k] = Left[i];
+		i++;
+		k++;
+	}
+
+	while (j < sizeRight)
+	{
+		array[k] = Right[j];
+		j++;
+		k++;
+	}
+}
+
+void PmergeMe::mergeList(std::list<int> &list, std::list<int> &left, std::list<int> &right) {
 	
-// 	(void)container;
-// 	std::cout << "sorting time" << std::endl;
-// }
+	list.clear();
+	std::list<int>::iterator lit = left.begin();
+	std::list<int>::iterator rit = right.begin();
+
+	while (lit != left.end() && rit != right.end())
+	{
+		if (*lit <= *rit)
+		{
+			list.push_back(*lit);
+			++lit;
+		}
+		else
+		{
+			list.push_back(*rit);
+			++rit;
+		}
+	}
+
+	while (lit != left.end())
+	{
+		list.push_back(*lit);
+		++lit;
+	}
+
+	while (rit != right.end())
+	{
+		list.push_back(*rit);
+		++rit;
+	}
+}
+
+void PmergeMe::fordJohnsonVector(std::vector<int> &array, int left, int right) {
+
+	if (left < right)
+	{
+		int mid = left + (right - left) / 2;
+		fordJohnsonVector(array, left, mid);
+		fordJohnsonVector(array, mid + 1, right);
+		mergeVector(array, left, mid, right);
+	}
+}
+
+void PmergeMe::fordJohnsonList(std::list<int> &list) {
+
+	if (list.size() <= 1)
+		return;
+
+	std::list<int>::iterator it = list.begin();
+	std::list<int> left;
+	std::list<int> right;
+
+	std::advance(it, list.size() / 2);
+	
+	left.splice(left.begin(), list, list.begin(), it);
+	right.splice(right.begin(), list, it, list.end());
+
+	fordJohnsonList(left);
+	fordJohnsonList(right);
+	mergeList(list, left, right);
+}
 
 // ************************************************************************** //
 //	EXCEPTIONS
