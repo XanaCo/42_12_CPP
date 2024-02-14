@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 21:16:05 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/13 22:58:22 by ancolmen         ###   ########.fr       */
+/*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
+/*   Updated: 2024/02/13 19:32:20 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ PmergeMe::PmergeMe(int size, char **listNum) : _size(size - 1) {
 			throw PmergeMeError("Error: wrong digit input");
 		if (std::find(_array.begin(), _array.end(), atoi(listNum[i])) != _array.end())
 			throw PmergeMeError("Error: doubles not permitted");
-
 		_array.push_back(atoi(listNum[i]));
 		_list.push_back(atoi(listNum[i]));
 	}
@@ -58,46 +57,94 @@ int PmergeMe::getSize() const {
 //	METHODS
 // ************************************************************************** //
 
-void PmergeMe::fordJohnsonVector(std::vector<int> &array) {
-
-	if (array.size() <= 1)
-		return;
-
-	size_t i;
-	std::vector<int> largerElements;
+void PmergeMe::mergeVector(std::vector<int> &array, int left, int mid, int right) {
 	
-//Group into pairs and compare
-	for (i = 0; i < array.size() - 1; i += 2)
+	int sizeLeft = mid - left + 1;
+	int sizeRight = right - mid;
+
+	std::vector<int> Left(sizeLeft);
+	std::vector<int> Right(sizeRight);
+
+	for (int i = 0; i < sizeLeft; ++i)
+		Left[i] = array[left + i];
+	for (int i = 0; i < sizeRight; ++i)
+		Right[i] = array[mid + 1 + i];
+
+	int i = 0, j = 0, k = left;
+
+	while (i < sizeLeft && j < sizeRight) 
 	{
-		if (array[i] > array[i + 1])
-			largerElements.push_back(array[i]);
-		else
-			largerElements.push_back(array[i + 1]);
-	}
-
-	if (i == array.size() - 1)
-		largerElements.push_back(array[i]);
-
-//Sort recursively the larger elements
-	fordJohnsonVector(largerElements);
-
-//Insert the smallest at the start of the sorted sequence
-	std::vector<int> sortedSequence;
-	sortedSequence.push_back(array[0]);
-
-//Insert reamainig elements into the sorted sequence
-	for (size_t k = 1; k < array.size(); ++k)
-	{
-		if (array[k] < sortedSequence[0])
-			sortedSequence.insert(sortedSequence.begin(), array[k]);
+ 		if (Left[i] <= Right[j])
+		{
+			array[k] = Left[i];
+			i++;
+		}
 		else
 		{
-			std::vector<int>::iterator it = std::lower_bound(sortedSequence.begin(), sortedSequence.end(), array[k]);
-			sortedSequence.insert(it, array[k]);
+			array[k] = Right[j];
+			j++;
+		}
+		k++;
+	}
+
+	while (i < sizeLeft)
+	{
+		array[k] = Left[i];
+		i++;
+		k++;
+	}
+
+	while (j < sizeRight)
+	{
+		array[k] = Right[j];
+		j++;
+		k++;
+	}
+}
+
+void PmergeMe::mergeList(std::list<int> &list, std::list<int> &left, std::list<int> &right) {
+	
+	list.clear();
+
+	std::list<int>::iterator lit = left.begin();
+	std::list<int>::iterator rit = right.begin();
+
+	while (lit != left.end() && rit != right.end())
+	{
+		if (*lit <= *rit)
+		{
+			list.push_back(*lit);
+			++lit;
+		}
+		else
+		{
+			list.push_back(*rit);
+			++rit;
 		}
 	}
 
-	array = sortedSequence;
+	while (lit != left.end())
+	{
+		list.push_back(*lit);
+		++lit;
+	}
+
+	while (rit != right.end())
+	{
+		list.push_back(*rit);
+		++rit;
+	}
+}
+
+void PmergeMe::fordJohnsonVector(std::vector<int> &array, int left, int right) {
+
+	if (left < right)
+	{
+		int mid = left + (right - left) / 2;
+		fordJohnsonVector(array, left, mid);
+		fordJohnsonVector(array, mid + 1, right);
+		mergeVector(array, left, mid, right);
+	}
 }
 
 void PmergeMe::fordJohnsonList(std::list<int> &list) {
@@ -105,50 +152,18 @@ void PmergeMe::fordJohnsonList(std::list<int> &list) {
 	if (list.size() <= 1)
 		return;
 
-	std::list<int> largerElements;
 	std::list<int>::iterator it = list.begin();
+	std::list<int> left;
+	std::list<int> right;
+
+	std::advance(it, list.size() / 2);
 	
-//Group into pairs and compare
-	while (it != list.end())
-	{
-	 	int firstElement = *it;
-		++it;
-		
-		if (it != list.end())
-		{
-			int secondElement = *it;
-			++it;
-	
-			if (firstElement > secondElement)
-				largerElements.push_back(firstElement);
-			else
-				largerElements.push_back(secondElement);
+	left.splice(left.begin(), list, list.begin(), it);
+	right.splice(right.begin(), list, it, list.end());
 
-		}
-		else
-			largerElements.push_back(firstElement);
-	}
-
-//Sort recursively the larger elements
-	fordJohnsonList(largerElements);
-
-//Insert the smallest at the start of the sorted sequence
-	std::list<int> sortedSequence;
-	sortedSequence.push_back(list.front());
-
-//Insert reamainig elements into the sorted sequence
-	for (std::list<int>::iterator it = ++list.begin(); it != list.end(); ++it)
-	{
-		if (*it < sortedSequence.front())
-			sortedSequence.push_front(*it);
-        else
-		{
-			std::list<int>::iterator insertPos = std::lower_bound(sortedSequence.begin(), sortedSequence.end(), *it);
-			sortedSequence.insert(insertPos, *it);
-		}
-	}
-
-	list = sortedSequence;
+	fordJohnsonList(left);
+	fordJohnsonList(right);
+	mergeList(list, left, right);
 }
 
 // ************************************************************************** //

@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/13 19:58:55 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/13 22:58:34 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class PmergeMe {
 			clock_t time = clock();
 	
 			if (typeid(Container) == typeid(std::vector<int>))
-				fordJohnsonVector(_array, 0, _size - 1);
+				fordJohnsonVector(_array);
 				
 			else if (typeid(Container) == typeid(std::list<int>))
 				fordJohnsonList(_list);
@@ -80,11 +80,8 @@ class PmergeMe {
 		PmergeMe(PmergeMe const &copy);
 		PmergeMe &operator=(PmergeMe const &other);
 		
-		void fordJohnsonVector(std::vector<int> &array, int left, int right);
+		void fordJohnsonVector(std::vector<int> &array);
 		void fordJohnsonList(std::list<int> &list);
-
-		void mergeVector(std::vector<int> &array, int left, int mid, int right);
-		void mergeList(std::list<int> &list, std::list<int> &left, std::list<int> &right);
 		
 		std::vector<int>	_array;
 		std::list<int>		_list;

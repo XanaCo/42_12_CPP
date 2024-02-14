@@ -6,7 +6,7 @@
 /*   By: ancolmen <ancolmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:56:29 by ancolmen          #+#    #+#             */
-/*   Updated: 2024/02/13 20:21:53 by ancolmen         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:42:26 by ancolmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,12 @@ int main(int argc, char **argv)
 
 		std::cout << YELLOW << "Before :  " << END_COLOR;
 		printContainer(data.getArray());
-
-		// std::cout << GREEN << "Before (list) : " << END_COLOR;//
-		// printContainer(data.getList());//
 	
 		double vectorTime = data.sort(data.getArray());
 		double listTime = data.sort(data.getList());
 
 		std::cout << GREEN << "After  :  " << END_COLOR;
 		printContainer(data.getArray());
-		
-		// std::cout << GREEN << "After (list) :  " << END_COLOR;//
-		// printContainer(data.getList());//
 
 		std::cout << WHITE << "Time to process a range of " << data.getSize() << " elements with " << VECTOR << " : " << vectorTime << " us" << END_COLOR << std::endl;
 		std::cout << WHITE << "Time to process a range of " << data.getSize() << " elements with " << LIST << " : " << listTime << " us" << END_COLOR << std::endl;
